@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User</h1>
+<%= @user.id %>
+<%= @user.firstName %>
+<%= @user.lastName %>
+
+<h1>Peppers</h1>
+<table>
+    <thead>
+<tr>
+  <th>Name</th>
+  <th>User</th>
+</tr>
+</thead>
+<% @user.peppers.each do |pepper| %>
+<tr>
+  <td><%= pepper.name %></td>
+  <td><%= pepper.id %></td>
+  <td><%= link_to 'Show', pepper %></td>
+  <td><%= link_to 'Edit', edit_pepper_path(pepper) %></td>
+  <td><%= link_to 'Destroy', pepper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+  <% end %>
+  </table>
+<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Back', users_path %>

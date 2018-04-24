@@ -1,0 +1,21 @@
+<%= form_with(model: pepper, local: true) do |f| %>
+  <% if pepper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pepper.errors.count, "error") %> prohibited this pepper from being saved:</h2>
+
+      <ul>
+      <% pepper.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit %>
+  </div>
+<% end %>
