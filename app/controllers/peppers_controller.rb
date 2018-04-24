@@ -27,6 +27,9 @@ class PeppersController < ApplicationController
   def create
     @pepper=Pepper.new(pepper_params)
     @pepper.user_id=current_user.id
+    @pepper.done=false
+    @pepper.currVal=0
+
 
     respond_to do |format|
       if @pepper.save
@@ -71,7 +74,7 @@ class PeppersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pepper_params
-      params.require(:pepper).permit(:user_id, :name)
+      params.require(:pepper).permit(:user_id, :name, :deadline, :units, :goal, :type, :positive)
     end
 
 

@@ -15,6 +15,24 @@
     <div class="field">
       <%= f.label :name %><br />
       <%= f.text_field :name %>
+
+      <%= f.label :units %><br />
+      <%= f.text_field :units %><br />
+
+      <p><%= radio_button_tag(:positive, "true") %>
+      <%= label_tag(:positive, "at least") %>
+      <%= radio_button_tag(:positive, "false") %>
+      <%= label_tag(:positive, "less than") %>
+      </p>
+      <%= f.label :goal %><br />
+      <%= f.number_field :goal %>
+
+      <%= f.label :deadline %><br />
+      <%= f.date_field :deadline %>
+
+
+
+
     </div>
     <%= f.submit %>
   </div>

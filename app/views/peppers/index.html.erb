@@ -6,7 +6,15 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>ID</th>
       <th>User</th>
+      <th>Units</th>
+      <th>Goal</th>
+      <th>Deadline</th>
+      <th>Done?</th>
+      <th>Current Value</th>
+      <th>Type</th>
+      <th>Positive?</th>
     </tr>
   </thead>
 
@@ -14,7 +22,15 @@
     <% @peppers.each do |pepper| %>
       <tr>
         <td><%= pepper.name %></td>
+        <td><%= pepper.id %></td>
         <td><%= pepper.user_id %></td>
+        <td><%= pepper.units %></td>
+        <td><%= pepper.goal %></td>
+        <td><%= pepper.deadline %></td>
+        <td><%= pepper.done %></td>
+        <td><%= pepper.currVal %></td>
+        <td><%= pepper.type %></td>
+        <td><%= pepper.positive %></td>
         <td><%= link_to 'Show', pepper %></td>
         <td><%= link_to 'Edit', edit_pepper_path(pepper) %></td>
         <td><%= link_to 'Destroy', pepper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
