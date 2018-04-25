@@ -1,4 +1,4 @@
-export class ProgressBar {
+class ProgressBar {
     constructor(title, goal, currentState, units, deadline) {
         this.goal = goal;
         this.currentState = currentState;
