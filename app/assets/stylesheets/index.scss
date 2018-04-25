@@ -1,0 +1,103 @@
+.main_box{
+  display: grid;
+  height: 92vh;
+  width: 98vw;
+}
+.left_main {
+  border-right: 1px solid black;
+  height: 98vh;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.right_main {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  margin: 0 auto;
+  width: 40vw;
+  overflow-y: auto;
+}
+
+.flex_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.tracker {
+  width: 15vw;
+  height: 15vh;
+  background-color: #F7931E;
+  color: #fff;
+  border-radius: 15px;
+  margin: 25px;
+  position: relative;
+}
+
+.tracker:hover, .make_btn:hover, h4:hover {
+  cursor: pointer;
+}
+
+.title_main {
+  text-align: center;
+  font-family: "Meddon";
+  Margin: 50px;
+}
+
+.tracker_title{
+  margin-left: 20px;
+  margin-bottom: 5px;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.profile_pic_main{
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 50px;
+}
+
+.img_main {
+  width: 100%;
+  height: auto;
+}
+
+.pos{
+  text-align:center;
+}
+
+.make_btn {
+  background-color: #F7931E;
+  height: 5vh;
+  width: 12vw;
+  border-radius: 15px;
+  margin: 25px auto;
+  line-height: 5vh;
+  color: white;
+  font-family: "Open Sans";
+  font-weight: bold;
+}
+
+.hello, h4{
+  font-family: "Open sans"
+}
+
+.overview_title {
+  font-family: "righteous";
+  margin-top: 30px;
+}
+
+.overview {
+  margin-top: 30px;
+}
+
