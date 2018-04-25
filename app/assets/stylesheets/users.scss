@@ -1,3 +1,109 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grid_box {
+  display: grid;
+  background-color: #ffffff;
+  height: 80vh;
+  width: 90vw;
+  margin: 10vh 5vw;
+  border-radius: 15px;
+  box-shadow: 8px 6px 5px rgba(0, 0, 0, .16);
+  position: absolute;
+}
+
+body, html{
+  margin: 0;
+  padding: 0;
+}
+
+.body_users {
+  height: 100vh;
+  background: linear-gradient(#F7931E,#F7B733);
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  border: 0;
+  border-bottom: 1px solid #000;
+  font-family: "Open Sans";
+  width: 420px;
+  padding-left: 20px;
+  font-size: 25px;
+}
+
+input[type="submit"] {
+  background-color: #F7931E;
+  border: none;
+  border-radius: 15px;
+  height: 84px;
+  width: 440px;
+  color: #fff;
+  font-family: "Open Sans";
+  font-size: 40px;
+  margin-top: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+::placeholder {
+  color: #000;
+  opacity: 1;
+  padding-left: 20px;
+
+}
+:-ms-input-placeholder {
+  color: #000;
+  padding-left: 20px;
+}
+.left {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: auto;
+}
+
+.right {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  margin: auto;
+}
+
+.signup {
+  background-color: #F7931E;
+  border-radius: 15px;
+  height: 84px;
+  width: 440px;
+  margin-top: 40px;
+  text-align: center;
+  line-height: 84px;
+  color: #fff;
+  font-family: "Open Sans";
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.welcome_signup {
+  width: 78%;
+}
+
+h1 {
+  text-align: center;
+  Font-family: Meddon;
+  font-size: 60px;
+  margin-right: 4vw;
+}
+
+.right_title {
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: bold;
+}
+
+.forgot {
+  margin: auto;
+  text-decoration: none;
+  text-align: center;
+}
