@@ -18,5 +18,5 @@ function setTracker(data) {
     </div>
     <p class="progress-bar-notification"></p>`);
 
-    new ProgressBar(data.name, data.goal, data.currVal, data.units, data.deadline);
+    new ProgressBar(data.id, data.name, data.goal, data.currVal, data.units, data.deadline);
 }

@@ -1,5 +1,6 @@
 class ProgressBar {
-    constructor(title, goal, currentState, units, deadline) {
+    constructor(id, title, goal, currentState, units, deadline) {
+        this.id = id;
         this.goal = goal;
         this.currentState = currentState;
         this.units = units;
@@ -52,7 +53,13 @@ class ProgressBar {
     addProgress() {
         var value = $(".progress-bar-input").val();
         if (this.tryParseInt(value) === true) {
-            this.changeState(parseInt(value));
+            $.ajax({
+                type: "POST", 
+                url: "/peppers/" + this.id,
+                currVal: this.currentState + value,
+                success: this.changeState(parseInt(value)),
+                error: console.log("Error")
+            });
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
