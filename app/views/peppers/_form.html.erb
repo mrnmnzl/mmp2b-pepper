@@ -1,3 +1,4 @@
+
 <%= form_with(model: pepper, local: true) do |f| %>
   <% if pepper.errors.any? %>
     <div id="error_explanation">
@@ -13,12 +14,11 @@
 
   <div class="actions">
     <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
+      <%= f.text_field :name, placeholder: 'Name'%><br>
+      <br>
 
-      <%= f.label :units %><br />
-      <%= f.text_field :units %><br />
-
+      <%= f.text_field :units, placeholder: "Units" %><br />
+      <br>
       <div><%= label :positive, "at least" %>
       <%= f.radio_button :positive, true , :checked => true , :value => true %></div>
 
