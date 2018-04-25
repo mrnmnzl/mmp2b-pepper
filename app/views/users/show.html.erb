@@ -6,7 +6,7 @@
 <%= @user.lastName %>
 
 <h1>Peppers</h1>
-<table>
+<table border="1">
     <thead>
 <tr>
   <th>Name</th>
@@ -19,9 +19,9 @@
   <td><%= pepper.name %></td>
   <td><%= pepper.id %></td>
     <td><%= pepper.deadline %></td>
-  <td><%= link_to 'Show', pepper %></td>
+  <td><%= link_to 'Show', pepper_path(pepper) %></td>
   <td><%= link_to 'Edit', edit_pepper_path(pepper) %></td>
-  <td><%= link_to 'Destroy', pepper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to 'Destroy', pepper_path(pepper), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
   <% end %>
   </table>

@@ -1,2 +1,26 @@
 <h1>Hello, Rails!</h1>
 <p>Find me in app/views/main/index.html.erb</p>
+
+<h1>Peppers</h1>
+<table border="1">
+    <thead>
+<tr>
+  <th>Name</th>
+  <th>User</th>
+    <th>Deadline</th>
+</tr>
+</thead>
+<% @user.peppers.each do |pepper| %>
+<tr>
+  <td><%= pepper.name %></td>
+  <td><%= pepper.id %></td>
+    <td><%= pepper.deadline %></td>
+  <td><%= link_to 'Show', pepper_path(pepper) %></td>
+  <td><%= link_to 'Edit', edit_pepper_path(pepper) %></td>
+  <td><%= link_to 'Destroy', pepper_path(pepper), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+  <% end %>
+  </table>
+  <%= link_to 'New Pepper', new_pepper_path %>
+<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -33,7 +33,7 @@ class PeppersController < ApplicationController
 
     respond_to do |format|
       if @pepper.save
-        format.html { redirect_to @pepper, notice: 'Pepper was successfully created.' }
+        format.html { redirect_to pepper_path(@pepper), notice: 'Pepper was successfully created.' }
         format.json { render :show, status: :created, location: @pepper }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class PeppersController < ApplicationController
   def update
     respond_to do |format|
       if @pepper.update(pepper_params)
-        format.html { redirect_to @pepper, notice: 'Pepper was successfully updated.' }
+        format.html { redirect_to @pepper, notice: 'Pepper was successfully updated.'}
         format.json { render :show, status: :ok, location: @pepper }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class PeppersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pepper_params
-      params.require(:pepper).permit(:user_id, :name, :deadline, :units, :goal, :type, :positive)
+      params.require(:pepper).permit(:user_id, :name, :deadline, :units, :goal, :type, :positive, :currVal)
     end
 
 
