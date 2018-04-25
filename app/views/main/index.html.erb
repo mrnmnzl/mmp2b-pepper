@@ -1,4 +1,4 @@
-
+<% content_for :title, "Tracker" %>
 <div class="main_box">
   <div class="left_main">
     <div class="pos">
@@ -6,22 +6,21 @@
         <%= link_to image_tag("https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26f427f929772c4a2bb1da62b3edca86&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb",  {class: 'img_main'}) ,edit_user_registration_path %>
         </div>
       <h3 class="hello">Hello <%= current_user.firstName %></h3>
-      <div class="make_btn">New Tracker</div>
+      <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
       <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
       <div class="overview">
-        <h4>Cigarettes</h4>
-        <h4>Words for bachelor thesis</h4>
-        <h4>Monthly budget</h4>
+        <% @user.peppers.each do |pepper| %>
+          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+          <% end -%>
       </div>
-      <%= link_to 'New Pepper', new_pepper_path %>
-      <%= link_to 'Edit', edit_user_registration_path(@user) %> |
+
       <%= link_to 'Back', users_path %>
 
       <table border="1">
         <thead>
         <tr>
           <th>Name</th>
-          <th>User</th>
+          <th>ID</th>
           <th>Deadline</th>
         </tr>
         </thead>
@@ -30,7 +29,6 @@
             <td><%= pepper.name %></td>
             <td><%= pepper.id %></td>
             <td><%= pepper.deadline %></td>
-            <td><%= link_to 'Show', pepper_path(pepper) %></td>
             <td><%= link_to 'Edit', edit_pepper_path(pepper) %></td>
             <td><%= link_to 'Destroy', pepper_path(pepper), method: :delete, data: {confirm: 'Are you sure?'} %></td>
           </tr>
@@ -41,15 +39,13 @@
   <div class="right_main">
     <h1 class="title_main">Peppers</h1>
     <div class="flex_row">
+      <% @user.peppers.each do |pepper| %>
+        <%= link_to pepper_path(pepper) do %>
       <div class="tracker">
-        <div class="tracker_title">cigarettes</div>
+        <div class="tracker_title"><%= pepper.name %></div>
       </div>
-      <div class="tracker">
-        <div class="tracker_title">Words for bachelor thesis</div>
-      </div>
-      <div class="tracker">
-        <div class="tracker_title">Monthly budget</div>
-      </div>
+          <% end -%>
+      <% end -%>
     </div>
   </div>
 </div>

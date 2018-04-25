@@ -1,19 +1,39 @@
-<%= javascript_include_tag "application" %>
-<p id="notice"><%= notice %></p>
+<% content_for :title, "Peppers" %>
+<div class="main_box">
+  <div class="left_main">
+    <div class="pos">
+      <div class="profile_pic_main">
+        <%= link_to image_tag("https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26f427f929772c4a2bb1da62b3edca86&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb", {class: 'img_main'}), edit_user_registration_path %>
+      </div>
+      <h3 class="hello">Hello <%= current_user.firstName %></h3>
+      <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
+      <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
+      <div class="overview">
+        <% @user.peppers.each do |pepper| %>
+          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+  <div class="right_edit">
 
-<%= @pepper.name %>
-<%= @pepper.user_id %>
-<%= link_to 'Edit', edit_pepper_path(@pepper) %> |
-<%= link_to 'Back', peppers_path %>
+    <p id="notice"><%= notice %></p>
 
-<%= content_tag :div,  class:"container-tracker", data: {info: @pepper.to_json}  do%>
-    
-<% end %>
+    <%= @pepper.name %>
+    <%= @pepper.user_id %>
+    <%= link_to 'Edit', edit_pepper_path(@pepper) %> |
+    <%= link_to 'Back', peppers_path %>
 
-<script>
-    var info = $(".container-tracker").data("info");
-    $(window).on('load', () => {        
-        setTracker(info);
-    });
-</script>
+    <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
 
+    <% end %>
+
+    <script>
+        var info = $(".container-tracker").data("info");
+        $(document).on('turbolinks:load', () => {
+            setTracker(info);
+        });
+    </script>
+
+  </div>
+</div>

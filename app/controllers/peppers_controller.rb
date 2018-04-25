@@ -10,16 +10,23 @@ class PeppersController < ApplicationController
   # GET /peppers/1
   # GET /peppers/1.json
   def show
+    @user = User.find(current_user.id)
+    @peppers=Pepper.where(user_id:"@user.id")
     @pepper = Pepper.find(params[:id])
   end
 
   # GET /peppers/new
   def new
     @pepper = Pepper.new
+    @user = User.find(current_user.id)
+    @peppers=Pepper.where(user_id:"@user.id")
   end
 
   # GET /peppers/1/edit
   def edit
+    @user = User.find(current_user.id)
+    @peppers=Pepper.where(user_id:"@user.id")
+    @pepper = Pepper.find(params[:id])
   end
 
   # POST /peppers
