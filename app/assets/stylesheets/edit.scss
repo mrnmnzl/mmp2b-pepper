@@ -1,0 +1,32 @@
+.pengiun_edit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.pengiun_account {
+  height: auto;
+  width: 20vw;
+}
+
+.right_edit {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  margin: 0 auto;
+  width: 60vw;
+  overflow-y: auto;
+}
+
+.title_edit {
+  font-family: "Righteous";
+  text-align: center;
+  margin: 50px;
+}
+
+.pengiun_account_container {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
