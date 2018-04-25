@@ -1,6 +1,7 @@
 function setTracker(data) {
     //Add logic to add different trackers
 
+    $('.container-tracker').empty();
     $(".container-tracker").append(`<p class="tracker-title">---</p>
     <div class="wrapper-progress-bar">
         <p>0%</p>

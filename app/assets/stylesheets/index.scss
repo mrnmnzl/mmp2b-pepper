@@ -14,7 +14,7 @@
   grid-column-start: 2;
   grid-column-end: 6;
   margin: 0 auto;
-  width: 40vw;
+  width: 60vw;
   overflow-y: auto;
 }
 
@@ -88,6 +88,10 @@
   font-weight: bold;
 }
 
+a:visited {
+  color: #000;
+}
+
 .hello, h4{
   font-family: "Open sans"
 }
@@ -95,6 +99,11 @@
 .overview_title {
   font-family: "righteous";
   margin-top: 30px;
+  color: #000;
+}
+
+.overview_title_a:visited {
+  color: #fff;
 }
 
 .overview {
