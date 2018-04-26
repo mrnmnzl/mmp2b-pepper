@@ -3,9 +3,10 @@
   <div class="left_main">
     <div class="pos">
       <div class="profile_pic_main">
-        <%= link_to image_tag("https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26f427f929772c4a2bb1da62b3edca86&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb",  {class: 'img_main'}) ,edit_user_registration_path %>
+        <%= image_tag @user.picture.url %>
         </div>
       <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
+      <h2><%=current_user.email%></h2>
       <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
       <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
       <div class="overview">
@@ -14,11 +15,12 @@
           <% end -%>
       </div>
     </div>
+    <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
   </div>
 
   <div class="right_main">
     <h1 class="title_main">Peppers</h1>
-    <div class="flex_row">
+    <div class="flex_row box">
       <% @user.peppers.each do |pepper| %>
         <%= link_to pepper_path(pepper) do %>
           <div class="tracker">
@@ -29,6 +31,3 @@
     </div>
   </div>
 </div>
-
-
-

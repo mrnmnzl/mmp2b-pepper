@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
-  resources :tasks
-  resources :peppers
+  resources :peppers do
+   resources :tasks
+ end
   resources :main
+
 
 
 

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_pepper
   # GET /tasks
   # GET /tasks.json
   def index
@@ -25,10 +25,10 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
+    @task.pepper_id=@pepper.id
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to pepper_path(@pepper), notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -69,6 +69,10 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:peppers_id, :name, :status)
+      params.require(:task).permit(:name, :status)
+    end
+
+    def set_pepper
+      @pepper = Pepper.find(params[:pepper_id])
     end
 end

@@ -12,11 +12,12 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="actions create_form">
     <div class="field">
+      <%= f.label :name_your_pepper %>
       <%= f.text_field :name, placeholder: 'Name'%><br>
       <br>
-
+      <%= f.label :What_do_you_need? %>
       <%= f.text_field :units, placeholder: "Units" %><br />
       <br>
       <div><%= label :positive, "at least" %>
@@ -31,7 +32,7 @@
       <%= f.label :deadline %><br />
       <%= f.date_field :deadline %>
 
-<%= f.select(:type, options_for_select([['Progress', "Progress"], ['Trend Line', "Trend"], ['Mean value', "Mean"], ['Tasks', "ToDo"], ['Regress', "Negative"], ['Trend Line', "Trend"]])) %>
+<%= f.select(:type, options_for_select([['Progress', "Progress"],['Mean value', "Mean"], ['Tasks', "ToDo"]])) %>
 
     </div>
     <%= f.submit %>

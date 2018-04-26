@@ -1,5 +1,6 @@
 class Pepper < ApplicationRecord
   belongs_to :user
+  has_many :tasks
 end
 
 class Progress < Pepper
@@ -9,7 +10,7 @@ class Trend < Pepper
 end
 
 class ToDo < Pepper
-  has_many :tasks
+
 end
 
 class Mean < Pepper
