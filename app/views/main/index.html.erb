@@ -18,7 +18,7 @@
 
   <div class="right_main">
     <h1 class="title_main">Peppers</h1>
-    <div class="flex_row">
+    <div class="flex_row box">
       <% @user.peppers.each do |pepper| %>
         <%= link_to pepper_path(pepper) do %>
           <div class="tracker">
