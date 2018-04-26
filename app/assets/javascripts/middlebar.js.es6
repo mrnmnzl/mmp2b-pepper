@@ -42,7 +42,8 @@ class TargetBar {
     setTrackerView() {
         //Display title, target, current state
         $(".tracker-title").text(this.title);
-        $(".tracker-target").text("Your target are " + this.goal + " " + this.units + ".");
+        if(this.mode === false) $(".tracker-target").text("Your target are " + this.goal + " " + this.units + " or less.");
+        else $(".tracker-target").text("Your target are " + this.goal + " " + this.units + " or more.");
         $(".progress-bar-state").text(this.currentState + " " + this.units);
 
         var maxWidth = $(".progress-bar").width() - 10;
