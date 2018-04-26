@@ -1,21 +1,31 @@
-.main_box{
+.main_box {
   display: grid;
-  height: 92vh;
-  width: 98vw;
+  height: 100vh;
+
 }
+
 .left_main {
-  border-right: 1px solid black;
-  height: 98vh;
+  height: 100vh;
   grid-column-start: 1;
   grid-column-end: 2;
+  box-shadow: 6px 0px 5px rgba(0, 0, 0, .16);
+  z-index: 10;
 }
 
 .right_main {
   grid-column-start: 2;
   grid-column-end: 6;
-  margin: 0 auto;
-  width: 60vw;
+  background: linear-gradient(#F7931E, #F7B733);
   overflow-y: auto;
+}
+
+.box {
+  background-color: white;
+  border-radius: 15px;
+  width: 60vw;
+  margin: 12vh auto;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .16);
+  display: block;
 }
 
 .flex_row {
@@ -24,6 +34,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: flex-start;
+  align-self: center;
 }
 
 .tracker {
@@ -46,18 +57,18 @@
   Margin: 50px;
 }
 
-.tracker_title{
+.tracker_title {
   margin-left: 20px;
   margin-bottom: 5px;
   position: absolute;
   bottom: 0;
-  left:0;
+  left: 0;
   font-family: "Open Sans";
   font-weight: bold;
   font-size: 20px;
 }
 
-.profile_pic_main{
+.profile_pic_main {
   display: inline-block;
   position: relative;
   width: 200px;
@@ -72,8 +83,9 @@
   height: auto;
 }
 
-.pos{
-  text-align:center;
+.pos {
+  text-align: center;
+  margin-top: 6vh;
 }
 
 .make_btn {
@@ -88,11 +100,16 @@
   font-weight: bold;
 }
 
+.make_btn:hover, .tracker:hover{
+  box-shadow:  0px 0px 3px 3px rgba(0, 0, 0, .16);
+
+}
+
 a:visited {
   color: #000;
 }
 
-.hello, h4{
+.hello, h4 {
   font-family: "Open sans"
 }
 

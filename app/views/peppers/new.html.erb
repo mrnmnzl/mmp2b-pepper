@@ -1,4 +1,3 @@
-
 <% content_for :title, "New Pepper" %>
 <div class="main_box">
   <div class="left_main">
@@ -18,9 +17,13 @@
   </div>
   <div class="right_edit">
     <h2 class="title_edit">Create Pepper</h2>
-<%= render 'form', pepper: @pepper %>
+    <div class="flex_row box">
+      <div class="create_box">
+      <%= render 'form', pepper: @pepper %>
 
 
-<%= link_to 'Back', peppers_path , :class => 'overview_title_a'%>
+      <%= link_to 'Back', peppers_path, :class => 'overview_title_a' %>
+      </div>
+    </div>
   </div>
 </div>

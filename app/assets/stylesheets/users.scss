@@ -12,7 +12,7 @@
   width: 90vw;
   margin: 10vh 5vw;
   border-radius: 15px;
-  box-shadow: 8px 6px 5px rgba(0, 0, 0, .16);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, .16);
   position: absolute;
 }
 
@@ -106,4 +106,8 @@ h1 {
   margin: auto;
   text-decoration: none;
   text-align: center;
+}
+
+.login_field {
+  border: 0;
 }

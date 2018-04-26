@@ -75,5 +75,13 @@
         });
     </script>
 
+      <script>
+          var data = $(".container-tracker").data("info");
+          console.log(data);
+          $(document).on('turbolinks:load', () => {
+              setTracker("<%= @pepper.class.name %>", data);
+          });
+      </script>
+    </div>
   </div>
 </div>

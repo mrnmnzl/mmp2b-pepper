@@ -1,20 +1,16 @@
-.pengiun_edit {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+
 
 .pengiun_account {
   height: auto;
   width: 20vw;
+  max-width: 350px;
 }
 
 .right_edit {
   grid-column-start: 2;
   grid-column-end: 6;
-  margin: 0 auto;
-  width: 60vw;
   overflow-y: auto;
+  background: linear-gradient(#F7931E, #F7B733);
 }
 
 .title_edit {
@@ -24,10 +20,56 @@
   font-size: 40px;
 }
 
-.pengiun_account_container {
-  position: relative;
-}
-
 a {
   text-decoration: none;
+}
+
+input#cancel_account {
+  margin-top: 1px;
+}
+
+.field {
+  border: 1px solid rgba(247,147,30, 0.45 );
+  border-bottom: 0;
+}
+
+.edit_form {
+  margin: 4vh 2vw;
+}
+
+.text_right {
+  margin-left: 60%;
+}
+
+.pengiun_account_container {
+  margin: 4vh 2vw;
+  position: relative;
+  width: 440px;
+}
+
+.pengiun_edit {
+  text-align: center;
+}
+
+.create_form {
+  margin: 4vh 0;
+}
+.create_box{
+  margin: 0 auto;
+}
+
+.container-tracker {
+  margin: 0 auto;
+  padding: 4vh 0;
+}
+
+.absolute{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.zero {
+  padding: 0;
+  margin: 0;
 }
