@@ -18,6 +18,7 @@
   <div class="right_edit">
 
     <p id="notice"><%= notice %></p>
+    <h1><%= @pepper.name%></h1>
     <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
     <% end %>
 
@@ -28,5 +29,7 @@
             setTracker("<%= @pepper.class.name %>", data);
         });
     </script>
+    <%= link_to('Back',root_path) %>
+    <%= link_to('Edit',edit_pepper_path(@pepper)) %>
   </div>
 </div>

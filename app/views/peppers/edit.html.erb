@@ -9,18 +9,13 @@
       <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
       <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
       <div class="overview">
-        <% @user.peppers.each do |pepper| %>
-          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
-        <% end -%>
       </div>
     </div>
   </div>
   <div class="right_edit">
-    <h2 class="title_edit">Create Pepper</h2>
+    <h2 class="title_edit">Edit <%=@pepper.name%></h2>
 
-    <%= render 'form', pepper: @pepper %>
 
-    <%= link_to 'Show', @pepper %> |
-    <%= link_to 'Back', peppers_path %>
+    <%= link_to 'Back', pepper_path(@pepper) %>
   </div>
 </div>
