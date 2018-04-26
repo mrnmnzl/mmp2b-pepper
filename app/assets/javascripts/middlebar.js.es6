@@ -77,7 +77,20 @@ class TargetBar {
     addProgress() {
         var value = $(".progress-bar-input").val();
         if (this.tryParseInt(value) === true) {
-            this.changeState(parseInt(value));
+            value = parseInt(value);
+            if(this.currentState + value <= this.goal*2) {
+                $.ajax({
+                    type: "PATCH", 
+                    url: "/peppers/" + this.id + ".json",
+                    data: { "pepper[currVal]": (this.currentState + value) }, 
+                    success: (status) => {
+                        console.log(status);
+                    }
+                });
+                this.changeState(value);
+            } else {
+                $(".progress-bar-notification").text("Only " + (this.goal - this.currentState) + " " + this.units + " can be added.");
+            }
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
@@ -86,7 +99,20 @@ class TargetBar {
     removeProgress() {
         var value = $(".progress-bar-input").val();
         if (this.tryParseInt(value) === true) {
-            this.changeState(parseInt(value) * (-1));
+            value = parseInt(value);
+            if(this.currentState - value >= 0) {
+                $.ajax({
+                    type: "PATCH", 
+                    url: "/peppers/" + this.id + ".json",
+                    data: { "pepper[currVal]": (this.currentState - value) }, 
+                    success: (status) => {
+                        console.log(status);
+                    }
+                });
+                this.changeState(value * -1);
+            } else {
+                $(".progress-bar-notification").text("Only " + (this.currentState) + " " + this.units + " can be removed.");
+            }
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
