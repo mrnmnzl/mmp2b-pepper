@@ -3,7 +3,7 @@
   <div class="left_main">
     <div class="pos">
       <div class="profile_pic_main">
-        <%= link_to image_tag("https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26f427f929772c4a2bb1da62b3edca86&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb",  {class: 'img_main'}) ,edit_user_registration_path %>
+        <%= image_tag @user.picture.url %>
         </div>
       <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
       <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
@@ -29,6 +29,3 @@
     </div>
   </div>
 </div>
-
-
-

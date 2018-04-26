@@ -32,7 +32,33 @@
     <td><%= @pepper.positive %></td>
 </tr>
     <% if @pepper.is_a?(ToDo) %>
-    <tr><td><%= link_to 'New Task', new_task_path %></td></tr>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%p=@pepper.becomes(Pepper)%>
+        <%p.tasks.each do |task| %>
+          <tr>
+            <td><%= task.id %></td>
+            <td><%= task.name %></td>
+            <td><%= task.done %></td>
+
+            <td><%= link_to 'Show', pepper_path(pepper) %></td>
+            <td><%= link_to 'Edit', edit_pepper_path(pepper) %></td>
+            <td><%= link_to 'Destroy', pepper_path(pepper), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+        <tr><td><%= link_to 'New Task', new_pepper_task_path %></td></tr>
+
     <% end %>
   </table>
     <%= link_to 'Edit', edit_pepper_path(@pepper) %> |

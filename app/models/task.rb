@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-  belongs_to :peppers
+  belongs_to :pepper
 end
