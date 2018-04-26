@@ -25,7 +25,7 @@ class TargetBar {
         } else if (this.currentState + value === this.goal) {
             $(".progress-bar-notification").append("<span style=\"color: green;\">Concrats! You reached your target!</span>");
             this.currentState += value;
-        } else if (this.currentState > this.goal) {
+        } else if (this.currentState > this.goal && this.mode === false) {
             $(".progress-bar-notification").append("You missed your goal. Try again next time.");
             this.currentState += value;
         } else {
@@ -65,7 +65,7 @@ class TargetBar {
         $(".progress-bar-min").text("0");
         $(".progress-bar-max").text(this.goal * 2);
 
-        if (this.mode !== "positive") {
+        if (this.mode === false) {
             if (this.currentPercentage <= 0.5) $(".progress-bar-internal").css("background", "green");
             else $(".progress-bar-internal").css("background", "red");
         } else {

@@ -39,13 +39,13 @@
     <%= link_to 'Back', peppers_path %>
 
     <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
-
     <% end %>
 
     <script>
-        var info = $(".container-tracker").data("info");
+        var data = $(".container-tracker").data("info");
+        console.log(data);
         $(document).on('turbolinks:load', () => {
-            setTracker(info);
+            setTracker("<%= @pepper.class.name %>", data);
         });
     </script>
 
