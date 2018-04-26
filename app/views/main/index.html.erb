@@ -6,6 +6,7 @@
         <%= image_tag @user.picture.url %>
         </div>
       <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
+      <h2><%=current_user.email%></h2>
       <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
       <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
       <div class="overview">
@@ -14,6 +15,7 @@
           <% end -%>
       </div>
     </div>
+    <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
   </div>
 
   <div class="right_main">

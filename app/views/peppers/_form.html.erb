@@ -31,7 +31,7 @@
       <%= f.label :deadline %><br />
       <%= f.date_field :deadline %>
 
-<%= f.select(:type, options_for_select([['Progress', "Progress"], ['Trend Line', "Trend"], ['Mean value', "Mean"], ['Tasks', "ToDo"], ['Regress', "Negative"], ['Trend Line', "Trend"]])) %>
+<%= f.select(:type, options_for_select([['Progress', "Progress"],['Mean value', "Mean"], ['Tasks', "ToDo"]])) %>
 
     </div>
     <%= f.submit %>
