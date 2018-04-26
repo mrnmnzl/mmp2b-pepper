@@ -9,6 +9,7 @@ class Trend < Pepper
 end
 
 class ToDo < Pepper
+  has_many :tasks
 end
 
 class Mean < Pepper

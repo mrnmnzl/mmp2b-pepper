@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
 
     if @user.destroy
         redirect_to root_url, notice: "User deleted."

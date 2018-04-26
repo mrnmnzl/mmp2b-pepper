@@ -18,9 +18,23 @@
   <div class="right_edit">
 
     <p id="notice"><%= notice %></p>
-
-    <%= @pepper.name %>
-    <%= @pepper.user_id %>
+    <table>
+<tr>
+    <td><%= @pepper.name %></td>
+    <td><%= @pepper.id %></td>
+    <td><%= @pepper.user_id %></td>
+    <td><%= @pepper.units %></td>
+    <td><%= @pepper.goal %></td>
+    <td><%= @pepper.deadline %></td>
+    <td><%= @pepper.done %></td>
+    <td><%= @pepper.currVal %></td>
+    <td><%= @pepper.type %></td>
+    <td><%= @pepper.positive %></td>
+</tr>
+    <% if @pepper.is_a?(ToDo) %>
+    <tr><td><%= link_to 'New Task', new_task_path %></td></tr>
+    <% end %>
+  </table>
     <%= link_to 'Edit', edit_pepper_path(@pepper) %> |
     <%= link_to 'Back', peppers_path %>
 

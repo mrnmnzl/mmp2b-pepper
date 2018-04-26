@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :peppers
-  resources :main
+
   devise_for :users
   resources :users
+  resources :tasks
+  resources :peppers
+  resources :main
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    root 'main#index'
