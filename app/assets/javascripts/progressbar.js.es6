@@ -1,11 +1,12 @@
 class ProgressBar {
-    constructor(id, title, goal, currentState, units, deadline) {
+    constructor(id, title, goal, currentState, units, deadline, done) {
         this.id = id;
         this.goal = goal;
         this.currentState = currentState;
         this.units = units;
         this.deadline = deadline;
         this.title = title;
+        this.done = done;
 
         this.calculatePercentage();
         $("#progress-bar-button-minus").on('click', () => this.removeProgress());
@@ -15,14 +16,26 @@ class ProgressBar {
     changeState(value) {
         $(".progress-bar-notification").text("");
 
-        if (this.currentState + value > this.goal) {
-            $(".progress-bar-notification").text("You can only add " + (this.goal - this.currentState) + " more " + this.units);
-        } else if (this.currentState + value < 0) {
-            $(".progress-bar-notification").text("You can only remove " + this.currentState + " " + this.units);
-        } else if (this.currentState + value === this.goal) {
+        if (this.currentState + value === this.goal) {
             $(".progress-bar-notification").append("<span style=\"color: green;\">Concrats! You reached your goal!</span>");
             this.currentState += value;
+            $.ajax({
+                type: "PATCH", 
+                url: "/peppers/" + this.id + ".json",
+                data: { "pepper[done]": true }, 
+                success: (status) => {
+                    console.log(status);
+                }
+            });
         } else {
+            $.ajax({
+                type: "PATCH", 
+                url: "/peppers/" + this.id + ".json",
+                data: { "pepper[done]": false }, 
+                success: (status) => {
+                    console.log(status);
+                }
+            });
             this.currentState += value;
         }
         this.calculatePercentage();
@@ -39,13 +52,16 @@ class ProgressBar {
         var progressBar = $(".progress-bar-internal");
         $(".progress-bar-state").text(this.currentState + " " + this.units);
 
-        var oneDay = 24 * 60 * 60 * 1000;
-        var goalDate = new Date(this.deadline);
-        var goalDateString = goalDate.getDate() + "." + (goalDate.getMonth() + 1) + "." + goalDate.getFullYear();
-        var today = Date.now();
+        if (this.deadline !== null) {
+            var oneDay = 24 * 60 * 60 * 1000;
+            var goalDate = new Date(this.deadline);
+            var goalDateString = goalDate.getDate() + "." + (goalDate.getMonth() + 1) + "." + goalDate.getFullYear();
+            var today = Date.now();
 
-        var daysLeft = Math.round(Math.abs((goalDate.getTime() - today) / (oneDay)));
-        $(".progress-bar-deadline").text("Deadline: " + goalDateString + " (" + daysLeft + " days left)");
+            var daysLeft = Math.round(Math.abs((goalDate.getTime() - today) / (oneDay)));
+            $(".progress-bar-deadline").text("Deadline: " + goalDateString + " (" + daysLeft + " days left)");
+        }
+        
         if (this.currentPercentage > 0.05) progressBar.width(this.currentPercentage * maxWidth);
         else progressBar.width(0.05 * maxWidth)
     }
@@ -53,13 +69,20 @@ class ProgressBar {
     addProgress() {
         var value = $(".progress-bar-input").val();
         if (this.tryParseInt(value) === true) {
-            $.ajax({
-                type: "POST", 
-                url: "/peppers/" + this.id,
-                currVal: this.currentState + value,
-                success: this.changeState(parseInt(value)),
-                error: console.log("Error")
-            });
+            value = parseInt(value);
+            if(this.currentState + value <= this.goal) {
+                $.ajax({
+                    type: "PATCH", 
+                    url: "/peppers/" + this.id + ".json",
+                    data: { "pepper[currVal]": (this.currentState + value) }, 
+                    success: (status) => {
+                        console.log(status);
+                    }
+                });
+                this.changeState(value);
+            } else {
+                $(".progress-bar-notification").text("Only " + (this.goal - this.currentState) + " " + this.units + " can be added.");
+            }
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
@@ -68,7 +91,20 @@ class ProgressBar {
     removeProgress() {
         var value = $(".progress-bar-input").val();
         if (this.tryParseInt(value) === true) {
-            this.changeState(parseInt(value) * (-1));
+            value = parseInt(value);
+            if(this.currentState - value >= 0) {
+                $.ajax({
+                    type: "PATCH", 
+                    url: "/peppers/" + this.id + ".json",
+                    data: { "pepper[currVal]": (this.currentState - value) }, 
+                    success: (status) => {
+                        console.log(status);
+                    }
+                });
+                this.changeState(value * -1);
+            } else {
+                $(".progress-bar-notification").text("Only " + (this.currentState) + " " + this.units + " can be removed.");
+            }
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
