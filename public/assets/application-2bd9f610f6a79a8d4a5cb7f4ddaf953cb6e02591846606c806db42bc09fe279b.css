@@ -1,0 +1,573 @@
+/* line 3, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.pengiun_account {
+  height: auto;
+  width: 20vw;
+  max-width: 350px;
+}
+
+/* line 9, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.right_edit {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  overflow-y: auto;
+  background: linear-gradient(#F7931E, #F7B733);
+}
+
+/* line 16, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.title_edit {
+  font-family: "Righteous";
+  text-align: center;
+  margin: 50px;
+  font-size: 40px;
+}
+
+/* line 23, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 27, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+input#cancel_account {
+  margin-top: 1px;
+}
+
+/* line 31, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.field {
+  border: 1px solid rgba(247, 147, 30, 0.45);
+  border-bottom: 0;
+}
+
+/* line 36, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.edit_form {
+  margin: 4vh 2vw;
+}
+
+/* line 40, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.text_right {
+  margin-left: 60%;
+}
+
+/* line 44, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.pengiun_account_container {
+  margin: 4vh 2vw;
+  position: relative;
+  width: 440px;
+}
+
+/* line 50, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.pengiun_edit {
+  text-align: center;
+}
+
+/* line 54, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.create_form {
+  margin: 4vh 0;
+}
+
+/* line 57, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.create_box {
+  margin: 0 auto;
+}
+
+/* line 61, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.container-tracker {
+  margin: 0 auto;
+  padding: 4vh 0;
+}
+
+/* line 66, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.absolute {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* line 72, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/edit.scss */
+.zero {
+  padding: 0;
+  margin: 0;
+}
+/* line 1, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.main_box {
+  display: grid;
+  height: 100vh;
+}
+
+/* line 7, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.left_main {
+  height: 100vh;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  box-shadow: 6px 0px 5px rgba(0, 0, 0, 0.16);
+  z-index: 10;
+}
+
+/* line 15, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.right_main {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  background: white;
+  overflow-y: auto;
+}
+
+/* line 22, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.box {
+  background-color: white;
+  border-radius: 15px;
+  width: 60vw;
+  margin: 12vh auto;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.16);
+  display: block;
+}
+
+/* line 31, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.flex_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-self: center;
+}
+
+/* line 40, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.tracker {
+  width: 15vw;
+  height: 15vh;
+  background-color: white;
+  color: #fff;
+  border-radius: 15px;
+  margin: 25px;
+  position: relative;
+}
+
+/* line 50, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.tracker:hover, .make_btn:hover, h4:hover {
+  cursor: pointer;
+}
+
+/* line 54, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.title_main {
+  text-align: center;
+  font-family: "Meddon";
+  Margin: 50px;
+}
+
+/* line 60, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.tracker_title {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* line 71, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.profile_pic_main {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 50px;
+}
+
+/* line 81, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.img_main {
+  width: 100%;
+  height: auto;
+}
+
+/* line 86, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.pos {
+  text-align: center;
+  margin-top: 6vh;
+}
+
+/* line 91, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.make_btn {
+  background-color: #F7931E;
+  height: 5vh;
+  width: 12vw;
+  border-radius: 15px;
+  margin: 25px auto;
+  line-height: 5vh;
+  color: white;
+  font-family: "Open Sans";
+  font-weight: bold;
+}
+
+/* line 103, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.make_btn:hover, .tracker:hover {
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.16);
+}
+
+/* line 108, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+a:visited {
+  color: #000;
+}
+
+/* line 112, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.hello, h4 {
+  font-family: "Open sans";
+}
+
+/* line 116, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.overview_title {
+  font-family: "righteous";
+  margin-top: 30px;
+  color: #000;
+}
+
+/* line 122, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.overview_title_a:visited {
+  color: #fff;
+}
+
+/* line 126, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/index.scss */
+.overview {
+  margin-top: 30px;
+}
+/* line 5, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+body {
+  font-family: Roboto, sans-serif;
+}
+
+/* line 9, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.container-tracker {
+  width: 1000px;
+}
+
+/* line 13, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.wrapper-progress-bar {
+  position: relative;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+
+/* line 23, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar {
+  position: relative;
+  width: 80%;
+  height: 50px;
+  margin: 0 10px;
+  border: solid grey 1px;
+  border-radius: 3px;
+  background: white;
+}
+
+/* line 37, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-internal {
+  position: relative;
+  top: 5px;
+  left: 5px;
+  height: 40px;
+  width: 0;
+  border-radius: 3px;
+  transition: width 0.5s;
+  background: orange;
+}
+
+/* line 51, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.wrapper-progress-bar p {
+  font-size: 30px;
+}
+
+/* line 55, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-state {
+  width: 100%;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 35px;
+}
+
+/* line 63, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-deadline {
+  width: 100%;
+  margin: 30px 0 30px 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* line 71, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 80, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-button {
+  height: 40px;
+  width: 40px;
+  margin: 0 10px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  background: orange;
+  color: white;
+  font-size: 30px;
+}
+
+/* line 95, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-input {
+  height: 40px !important;
+  width: 120px !important;
+  padding: 0px 10px !important;
+  border: 1px solid grey !important;
+  border-radius: 3px !important;
+  font-size: 20px !important;
+}
+
+/* line 106, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-notification {
+  text-align: center;
+  color: red;
+  font-size: 15px;
+}
+
+/* line 112, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.tracker-title {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+
+/* line 118, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.tracker-target {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* line 124, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/peppers.scss */
+.progress-bar-divider {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 50px;
+  border-right: black solid 3px;
+  z-index: 1000;
+}
+/* line 1, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 10, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 16, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 26, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding: 0 5px 7px;
+}
+
+/* line 30, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 34, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 40, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 47, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 57, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 63, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+/* line 8, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.grid_box {
+  display: grid;
+  background-color: #ffffff;
+  height: 80vh;
+  width: 90vw;
+  margin: 10vh 5vw;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.16);
+  position: absolute;
+}
+
+/* line 19, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 24, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.body_users {
+  height: 100vh;
+  background: linear-gradient(#F7931E, #F7B733);
+}
+
+/* line 29, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+input[type="text"], input[type="password"], input[type="email"] {
+  border: 0;
+  border-bottom: 1px solid #000;
+  font-family: "Open Sans";
+  width: 420px;
+  padding-left: 20px;
+  font-size: 25px;
+}
+
+/* line 38, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+input[type="submit"] {
+  background-color: #F7931E;
+  border: none;
+  border-radius: 15px;
+  height: 84px;
+  width: 440px;
+  color: #fff;
+  font-family: "Open Sans";
+  font-size: 40px;
+  margin-top: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* line 51, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+::placeholder {
+  color: #000;
+  opacity: 1;
+  padding-left: 20px;
+}
+
+/* line 57, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+:-ms-input-placeholder {
+  color: #000;
+  padding-left: 20px;
+}
+
+/* line 61, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.left {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: auto;
+}
+
+/* line 67, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.right {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  margin: auto;
+}
+
+/* line 73, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.signup {
+  background-color: #F7931E;
+  border-radius: 15px;
+  height: 84px;
+  width: 440px;
+  margin-top: 40px;
+  text-align: center;
+  line-height: 84px;
+  color: #fff;
+  font-family: "Open Sans";
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* line 88, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.welcome_signup {
+  width: 78%;
+}
+
+/* line 92, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+h1 {
+  text-align: center;
+  Font-family: Meddon;
+  font-size: 60px;
+  margin-right: 4vw;
+}
+
+/* line 99, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.right_title {
+  text-align: center;
+  font-family: "Open Sans";
+  font-weight: bold;
+}
+
+/* line 105, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.forgot {
+  margin: auto;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* line 111, /Users/marion/Documents/Projekte/MMP2b - Tracker/MMP2b/app/assets/stylesheets/users.scss */
+.login_field {
+  border: 0;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+

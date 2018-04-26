@@ -1,32 +1,31 @@
 <% content_for :title, "Tracker" %>
 <div class="main_box">
-  <div class="left_main">
-    <div class="pos">
-      <div class="profile_pic_main">
-        <%= image_tag @user.picture.url %>
+    <div class="left_main">
+        <div class="pos">
+            <div class="profile_pic_main">
+                <%= link_to image_tag(@user.picture.url), edit_user_registration_path(@user)%>
+            </div>
+            <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
+            <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
+                <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
+                <div class="overview">
+                    <% @user.peppers.each do |pepper| %>
+                        <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+                    <% end -%>
+                </div>
+            </div>
         </div>
-      <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
-      <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
-      <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
-      <div class="overview">
-        <% @user.peppers.each do |pepper| %>
-          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
-          <% end -%>
-      </div>
+        <div class="right_main">
+            <h1 class="title_main">Peppers</h1>
+            <div class="flex_row box">
+                <% @user.peppers.each do |pepper| %>
+                    <%= link_to pepper_path(pepper) do %>
+                        <div class="tracker">
+                            <div class="tracker_title"><%= pepper.name %></div>
+                        </div>
+                    <% end -%>
+                <% end -%>
+            </div>
+        </div>
     </div>
-    <%= link_to 'Edit Profile', edit_user_registration_path(@user) %>
-  </div>
-
-  <div class="right_main">
-    <h1 class="title_main">Peppers</h1>
-    <div class="flex_row box">
-      <% @user.peppers.each do |pepper| %>
-        <%= link_to pepper_path(pepper) do %>
-          <div class="tracker">
-            <div class="tracker_title"><%= pepper.name %></div>
-          </div>
-        <% end -%>
-      <% end -%>
-    </div>
-  </div>
 </div>

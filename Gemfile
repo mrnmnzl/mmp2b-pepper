@@ -23,8 +23,8 @@ gem 'devise'
 gem 'jquery-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'sprockets-rails'
-gem 'sprockets'
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
 gem 'babel-transpiler'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
