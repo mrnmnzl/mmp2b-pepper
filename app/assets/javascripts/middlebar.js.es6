@@ -18,8 +18,8 @@ class TargetBar {
     changeState(value) {
         $(".progress-bar-notification").empty();
 
-        if (this.currentState + value > this.goal * 2) {
-            $(".progress-bar-notification").text("You can only add " + (this.goal * 2 - this.currentState) + " more " + this.units);
+        if (this.currentState + value > (this.goal * 2)) {
+            $(".progress-bar-notification").text("You can only add " + ((this.goal * 2) - this.currentState) + " more " + this.units);
         } else if (this.currentState + value < 0) {
             $(".progress-bar-notification").text("You can only remove " + this.currentState + " " + this.units);
         } else if (this.currentState + value === this.goal) {
@@ -67,10 +67,10 @@ class TargetBar {
         $(".progress-bar-max").text(this.goal * 2);
 
         if (this.mode === false) {
-            if (this.currentPercentage <= 0.5) $(".progress-bar-internal").css("background", "green");
+            if (this.currentPercentage < 0.5) $(".progress-bar-internal").css("background", "green");
             else $(".progress-bar-internal").css("background", "red");
         } else {
-            if (this.currentPercentage <= 0.5) $(".progress-bar-internal").css("background", "red");
+            if (this.currentPercentage < 0.5) $(".progress-bar-internal").css("background", "red");
             else $(".progress-bar-internal").css("background", "green");
         }
     }
@@ -90,7 +90,7 @@ class TargetBar {
                 });
                 this.changeState(value);
             } else {
-                $(".progress-bar-notification").text("Only " + (this.goal - this.currentState) + " " + this.units + " can be added.");
+                $(".progress-bar-notification").text("Only " + (this.goal * 2 - this.currentState) + " " + this.units + " can be added.");
             }
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");

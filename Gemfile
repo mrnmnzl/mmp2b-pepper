@@ -20,7 +20,7 @@ end
 gem 'puma', '~> 3.7'
 
 gem 'devise'
-gem 'webpacker', '~> 3.4'
+
 gem 'jquery-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
