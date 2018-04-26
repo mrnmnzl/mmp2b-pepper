@@ -16,22 +16,16 @@
     </div>
   </div>
   <div class="right_edit">
-
+  
     <p id="notice"><%= notice %></p>
-
-    <%= @pepper.name %>
-    <%= @pepper.user_id %>
-    <%= link_to 'Edit', edit_pepper_path(@pepper) %> |
-    <%= link_to 'Back', peppers_path %>
-
     <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
-
     <% end %>
 
     <script>
-        var info = $(".container-tracker").data("info");
+        var data = $(".container-tracker").data("info");
+        console.log(data);
         $(document).on('turbolinks:load', () => {
-            setTracker(info);
+            setTracker("<%= @pepper.class.name %>", data);
         });
     </script>
 
