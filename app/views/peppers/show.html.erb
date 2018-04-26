@@ -16,18 +16,19 @@
     </div>
   </div>
   <div class="right_edit">
-  
-    <p id="notice"><%= notice %></p>
-    <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
-    <% end %>
+    <h2 class="title_edit">Your Pepper</h2>
+    <div class="box">
+      <p id="notice"><%= notice %></p>
+      <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
+      <% end %>
 
-    <script>
-        var data = $(".container-tracker").data("info");
-        console.log(data);
-        $(document).on('turbolinks:load', () => {
-            setTracker("<%= @pepper.class.name %>", data);
-        });
-    </script>
-
+      <script>
+          var data = $(".container-tracker").data("info");
+          console.log(data);
+          $(document).on('turbolinks:load', () => {
+              setTracker("<%= @pepper.class.name %>", data);
+          });
+      </script>
+    </div>
   </div>
 </div>
