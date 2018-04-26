@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :peppers
 
-  has_attached_file :picture
+  has_attached_file :picture, :default_url => "penguin_normal.jpg"
   validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 end
