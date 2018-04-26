@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if current_user %>
 
 <h1>User</h1>
 <%= @user.id %>
 <%= @user.firstName %>
 <%= @user.lastName %>
+<%= image_tag @user.picture.url %>
 
 <h1>Peppers</h1>
 <table border="1">
@@ -28,3 +29,6 @@
   <%= link_to 'New Pepper', new_pepper_path %>
 <%= link_to 'Edit', edit_user_registration_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<p id="notice"><%= notice %></p>
+<%end%>

@@ -13,6 +13,7 @@ class PeppersController < ApplicationController
     @user = User.find(current_user.id)
     @peppers=Pepper.where(user_id:"@user.id")
     @pepper = Pepper.find(params[:id])
+    @tasks = @pepper.tasks
   end
 
   # GET /peppers/new
@@ -55,7 +56,7 @@ class PeppersController < ApplicationController
     respond_to do |format|
       if @pepper.update(pepper_params)
         format.html { redirect_to @pepper, notice: 'Pepper was successfully updated.'}
-        format.json { render :show, status: :ok, location: @pepper }
+        format.json { render json: @pepper, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @pepper.errors, status: :unprocessable_entity }

@@ -34,10 +34,13 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation ' %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "Sign up" %>
-        </div>
-      <% end %>
+      <%= f.label :picture, "Photo" %>
+<%= f.file_field :picture %>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
 
       <%= render "users/shared/links" %>
     </div>
