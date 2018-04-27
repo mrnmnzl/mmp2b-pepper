@@ -5,7 +5,7 @@
             <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
         </div>
         <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
-        <%= button_to '+ New tracker', new_pepper_path , :method => :get, :class => 'button-new-tracker' %>  
+        <%= button_to '+ New tracker', new_pepper_path , :method => :get, :class => 'button-new-tracker' %>
         <div class="overview-title"><%= link_to 'Overview', root_path %></div>
         <div class="overview-list-peppers">
             <% @user.peppers.each do |pepper| %>
@@ -30,7 +30,7 @@
                 setTracker("<%= @pepper.class.name %>", data);
             });
         </script>
-        <%= button_to 'Edit this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
-        <%= button_to 'Delete this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
+        <%= button_to 'Edit this pepper', pepper_path(@pepper), :method => :get, :class => 'button-edit-tracker' %>
+        <%= button_to 'Delete this pepper', pepper_path(@pepper), :class => 'button-edit-tracker', method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
 </div>
