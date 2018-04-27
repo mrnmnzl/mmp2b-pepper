@@ -2,6 +2,7 @@ function setTracker(trackerType, data) {
     $('.container-tracker').empty();
     if (trackerType === "Progress") {
         $(".container-tracker").append(`<div class="container-tracker">
+            <p class="tracker-title">---</p>
             <div class="wrapper-progress-bar">
                 <p>0%</p>
                 <div class="progress-bar">
@@ -21,6 +22,7 @@ function setTracker(trackerType, data) {
         new ProgressBar(data.id, data.name, data.goal, data.currVal, data.units, data.deadline);
     } else if (trackerType === "Mean") {
         $(".container-tracker").append(`<div class="container-tracker">
+            <p class="tracker-title">---</p>
             <p class="tracker-target">-</p>
             <div class="wrapper-progress-bar">
                 <p class="progress-bar-min">-</p>

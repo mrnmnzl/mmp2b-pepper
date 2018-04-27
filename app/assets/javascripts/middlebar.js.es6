@@ -41,6 +41,7 @@ class TargetBar {
 
     setTrackerView() {
         //Display title, target, current state
+        $(".tracker-title").text(this.title);
         if(this.mode === false) $(".tracker-target").text("Your target are " + this.goal + " " + this.units + " or less.");
         else $(".tracker-target").text("Your target are " + this.goal + " " + this.units + " or more.");
         $(".progress-bar-state").text(this.currentState + " " + this.units);
@@ -66,11 +67,11 @@ class TargetBar {
         $(".progress-bar-max").text(this.goal * 2);
 
         if (this.mode === false) {
-            if (this.currentPercentage < 0.5) $(".progress-bar-internal").css("background", "rgb(17, 86, 17)");
-            else $(".progress-bar-internal").css("background", "rgb(156, 31, 31)");
+            if (this.currentPercentage < 0.5) $(".progress-bar-internal").css("background", "green");
+            else $(".progress-bar-internal").css("background", "red");
         } else {
-            if (this.currentPercentage < 0.5) $(".progress-bar-internal").css("background", "rgb(156, 31, 31)");
-            else $(".progress-bar-internal").css("background", "rgb(17, 86, 17)");
+            if (this.currentPercentage < 0.5) $(".progress-bar-internal").css("background", "red");
+            else $(".progress-bar-internal").css("background", "green");
         }
     }
 
