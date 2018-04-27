@@ -38,5 +38,5 @@
 <%end%>
 
         <%= button_to 'Edit this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
-        <%= button_to 'Delete this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
+        <%= button_to 'Delete this pepper', pepper_path(@pepper), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button-edit-tracker' %>
     </div>
