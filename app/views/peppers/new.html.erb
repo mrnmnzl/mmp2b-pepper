@@ -1,5 +1,6 @@
 <% content_for :title, "New Pepper" %>
 <div class="main_box">
+<<<<<<< HEAD
   <div class="side-bar">
         <div class="profile_pic_main">
       <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
@@ -18,11 +19,32 @@
             <%= link_to 'Log In', new_user_session_path %>
             <%= link_to 'Sign Up', new_user_registration_path %>
         <% end %>
-    </div>
-  <div class="content">
-      <div class="display-title">Edit pepper</div>
-      <div class="form-edit-tracker">
-        <%= render 'form', pepper: @pepper %>
+=======
+  <div class="left_main">
+    <div class="pos">
+      <div class="profile_pic_main">
+        <%= link_to image_tag("https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26f427f929772c4a2bb1da62b3edca86&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb", {class: 'img_main'}), edit_user_registration_path %>
       </div>
+      <h3 class="hello">Hello <%= current_user.firstName %></h3>
+      <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
+      <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
+      <div class="overview">
+        <% @user.peppers.each do |pepper| %>
+          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+        <% end -%>
+      </div>
+>>>>>>> 51f5b739f466a4b4f5d66aa94ade0a810d1c142f
+    </div>
+  </div>
+  <div class="right_edit">
+    <h2 class="title_edit">Create Pepper</h2>
+    <div class="flex_row box">
+      <div class="create_box">
+      <%= render 'form', pepper: @pepper %>
+
+
+      <%= link_to 'Back', peppers_path, :class => 'overview_title_a' %>
+      </div>
+    </div>
   </div>
 </div>

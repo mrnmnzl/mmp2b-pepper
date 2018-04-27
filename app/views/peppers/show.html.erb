@@ -59,4 +59,22 @@
         <%= button_to 'Edit this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
         <%= button_to 'Delete this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
     </div>
+  </div>
+  <div class="right_edit">
+
+    <p id="notice"><%= notice %></p>
+    <h1><%= @pepper.name%></h1>
+    <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
+    <% end %>
+
+    <script>
+        var data = $(".container-tracker").data("info");
+        console.log(data);
+        $(document).on('turbolinks:load', () => {
+            setTracker("<%= @pepper.class.name %>", data);
+        });
+    </script>
+
+    <%= link_to('Edit pepper',edit_pepper_path(@pepper)) %>
+  </div>
 </div>
