@@ -1,30 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Titan+One');
-
 .main_box {
-  display: flex;
-  flex-direction: row;
+  display: grid;
   height: 100vh;
+
 }
 
-.side-bar {
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-
+.left_main {
   height: 100vh;
-  width: 300px;
-
+  grid-column-start: 1;
+  grid-column-end: 2;
   box-shadow: 6px 0px 5px rgba(0, 0, 0, .16);
   z-index: 10;
 }
 
-.content {
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-
-  flex: 1;
-  background: white;
+.right_main {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  background: linear-gradient(#F7931E, #F7B733);
   overflow-y: auto;
 }
 
@@ -80,8 +71,8 @@
 .profile_pic_main {
   display: inline-block;
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
   border-radius: 50%;
   margin-top: 50px;
@@ -90,6 +81,11 @@
 .img_main {
   width: 100%;
   height: auto;
+}
+
+.pos {
+  text-align: center;
+  margin-top: 6vh;
 }
 
 .make_btn {
@@ -117,12 +113,9 @@ a:visited {
   font-family: "Open sans"
 }
 
-.overview-title {
-  margin-top: 50px;
-  margin-bottom: 15px;
-
-  font-family: 'Titan One', cursive;
-  font-size: 25px;
+.overview_title {
+  font-family: "righteous";
+  margin-top: 30px;
   color: #000;
 }
 
@@ -130,55 +123,7 @@ a:visited {
   color: #fff;
 }
 
-.overview-list-peppers {
-  margin-bottom: 50px;
-  text-align: center;
-}
-
-.button-logout-user, .button-new-tracker, .button-edit-tracker, .button-delete-tracker, .signup{
-  height: 40px;
-
-  text-align: center;
-  padding: 0 20px;
-
-  border: none;
-  border-radius: 3px;
-
-  font-size: 15px;
-  
-  color: white;
-  background: #F7931E;
-  cursor: pointer;
-}
-
-.button-logout-user, .button-edit-tracker, .button-delete-tracker {
-  height: 30px;
-  margin-bottom: 10px;
-
-  font-size: 12px;
-}
-
-.pepper-display-name, .display-title {
-  margin-top: 60px;
-
-  font-size: 60px;
-  font-family: 'Titan One', cursive;
-}
-
-.form-edit-tracker {
-  margin: 0;
-  
-  label {
-    margin-top: 20px;
-  }
-
-  div {
-    div {
-      div {
-        display: flex;
-        flex-direction: row; 
-      }
-    }
-  }
+.overview {
+  margin-top: 30px;
 }
 

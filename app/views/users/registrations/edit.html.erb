@@ -1,26 +1,25 @@
 <% content_for :title, "Edit Profile" %>
 <div class="main_box">
-  <div class="side-bar">
-    <div class="profile_pic_main">
-        <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
-    </div>
-    <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
-    <%= button_to '+ New tracker', new_pepper_path, :method => :get,  :class => 'button-new-tracker' %>  
-    <div class="overview-title"><%= link_to 'Overview', root_path %></div>
-      <div class="overview-list-peppers">
-          <% @user.peppers.each do |pepper| %>
-          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
-          <% end -%>
+  <div class="left_main">
+    <div class="pos">
+      <div class="profile_pic_main">
+        <%= link_to image_tag("https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26f427f929772c4a2bb1da62b3edca86&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb", {class: 'img_main'}), edit_user_registration_path %>
       </div>
-    <% if user_signed_in? %>
-        <%= button_to 'Log out', destroy_user_session_path, method: :delete, :class => 'button-logout-user' %>
-    <% else %>
-        <%= link_to 'Log In', new_user_session_path %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-    <% end %>
+      <h3 class="hello">Hello <%= current_user.firstName %></h3>
+      <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
+      <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
+      <div class="overview">
+        <% @user.peppers.each do |pepper| %>
+          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+        <% end -%>
+      </div>
+    </div>
+
   </div>
-  <div class="content">
-    <h2 class="display-title">Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="right_edit">
+    <h2 class="title_edit">Edit <%= resource_name.to_s.humanize %></h2>
+    <div class="center">
+    <div class="flex_row box">
       <div class="edit_form">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
           <%= devise_error_messages! %>
@@ -71,11 +70,18 @@
           </div>
         <% end %>
       </div>
-  </div>
-    <div class="absolute">
-      <i>Unhappy?</i>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, id: 'cancel_account' %>
+      <div class="pengiun_account_container">
+        <div class="pengiun_edit">
+          <%= image_tag("penguin_normal.jpg", :class => 'pengiun_account') %>
+        </div>
+        <div class="absolute">
+          <i>Unhappy?</i>
+          <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, id: 'cancel_account' %>
+    <%= link_to "Back", :back %>
+
+        </div>
+      </div>
+      </div>
     </div>
-  
-  <%= image_tag("penguin_normal.jpg", :class => 'pengiun_account') %>
+  </div>
 </div>
