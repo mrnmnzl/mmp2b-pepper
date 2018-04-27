@@ -47,7 +47,6 @@ class ProgressBar {
     }
 
     setTrackerView() {
-        $(".tracker-title").text(this.title);
         var maxWidth = $(".progress-bar").width() - 10;
         var progressBar = $(".progress-bar-internal");
         $(".progress-bar-state").text(this.currentState + " " + this.units);
