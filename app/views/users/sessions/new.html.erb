@@ -5,7 +5,8 @@
       <%= image_tag "penguin_welcome.jpg" %>
     </div>
     <div class="right">
-      <h1 class="right_title">Pepperoooni</h1>
+      <h1 class="right_title">Pepper</h1>
+          <h2>Your personal Tracker. Hosted by Penguins</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field login_field">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email' %>
