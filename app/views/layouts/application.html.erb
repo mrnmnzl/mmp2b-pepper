@@ -10,6 +10,53 @@
       <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
   </head>
   <body>
+  <% if user_signed_in? %>
+  <div class="main_box">
+    <div class="side-bar">
+      <div class="profile_pic_main">
+        <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
+      </div>
+      <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
+      <%= button_to '+ New tracker', new_pepper_path, :method => :get, :class => 'button-new-tracker' %>
+      <div class="overview-title"><%= link_to 'Overview', root_path %></div>
+      <div class="overview-list-peppers">
+        <% @user.peppers.each do |pepper| %>
+          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+        <% end -%>
+      </div>
+      <% if user_signed_in? %>
+        <%= button_to 'Log out', destroy_user_session_path, method: :delete, :class => 'button-logout-user' %>
+      <% else %>
+        <%= link_to 'Log In', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %>
+
+      <p>
+        <a class="button" data-turbolinks="false" href="#popup2"><%= image_tag "questionmark.png", class: 'helper' %></a>
+      </p>
+      <div id="popup2" class="overlay light">
+        <div class="popup">
+          <a class="close" data-turbolinks="false" href="#">&times;</a>
+
+          <h2>Need some Help?</h2>
+          <div class="help_content">
+            These are the trackers you can use:
+            <ul class="overflow">
+              <li class="hover">Progress bar<span class="tooltip"></span></li>
+              <li class="hover">Mean value<span class="tooltip"></span></li>
+              <li class="hover">Tasks<span class="tooltip"></span></li>
+              <li class="hover">More coming soon!</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
     <%= yield %>
+  </div>
+  <% else %>
+    <%= yield %>
+    <% end -%>
+
   </body>
 </html>

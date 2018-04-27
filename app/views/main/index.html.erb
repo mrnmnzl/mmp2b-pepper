@@ -1,35 +1,14 @@
 <% content_for :title, "Tracker" %>
-<div class="main_box">
-    <div class="side-bar">
-        <div class="profile_pic_main">
-            <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
-        </div>
-        <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
-        <%= button_to '+ New tracker', new_pepper_path, :method => :get,  :class => 'button-new-tracker' %>  
-        <div class="overview-title"><%= link_to 'Overview', root_path %></div>
-        <div class="overview-list-peppers">
-            <% @user.peppers.each do |pepper| %>
-            <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
-            <% end -%>
-        </div>
-        <% if user_signed_in? %>
-            <%= button_to 'Log out', destroy_user_session_path, method: :delete, :class => 'button-logout-user' %>
-        <% else %>
-            <%= link_to 'Log In', new_user_session_path %>
-            <%= link_to 'Sign Up', new_user_registration_path %>
-        <% end %>
-    </div>
-        <div class="content">
-            <h1 class="display-title">Peppers</h1>
-            <div class="container-trackers">
-                <% @user.peppers.each do |pepper| %>
-                    <%= link_to pepper_path(pepper) do %>
-                        <div class="tracker">
-                            <div class="tracker_title"><%= pepper.name %></div>
-                        </div>
-                    <% end -%>
-                <% end -%>
-            </div>
-        </div>
+
+  <div class="content">
+    <h1 class="display-title">Peppers</h1>
+    <div class="container-trackers">
+      <% @user.peppers.each do |pepper| %>
+        <%= link_to pepper_path(pepper) do %>
+          <div class="tracker">
+            <div class="tracker_title"><%= pepper.name %></div>
+          </div>
+        <% end -%>
+      <% end -%>
     </div>
 </div>

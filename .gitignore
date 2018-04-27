@@ -30,3 +30,4 @@ yarn-debug.log*
 
 .env
 Procfile
+.DS_Store
