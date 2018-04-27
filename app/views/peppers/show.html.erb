@@ -37,6 +37,6 @@
      <tr><td><%= link_to 'New Task', new_pepper_task_path(@pepper) %></td></tr>
 <%end%>
 
-        <%= button_to 'Edit this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
+        <%= button_to 'Edit this pepper', root_path, :method => :get, :class => 'button-edit-tracker' %>
         <%= button_to 'Delete this pepper', pepper_path(@pepper), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button-edit-tracker' %>
     </div>
