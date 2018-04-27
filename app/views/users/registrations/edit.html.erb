@@ -5,7 +5,7 @@
         <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
     </div>
     <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
-    <%= button_to '+ New tracker', new_pepper_path, :method => :get,  :class => 'button-new-tracker' %>  
+    <%= button_to '+ New tracker', new_pepper_path, :method => :get,  :class => 'button-new-tracker' %>
     <div class="overview-title"><%= link_to 'Overview', root_path %></div>
       <div class="overview-list-peppers">
           <% @user.peppers.each do |pepper| %>
@@ -74,8 +74,9 @@
   </div>
     <div class="absolute">
       <i>Unhappy?</i>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, id: 'cancel_account' %>
+      <%= button_to "Cancel my account", @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </tr>
     </div>
-  
+
   <%= image_tag("penguin_normal.jpg", :class => 'pengiun_account') %>
 </div>
