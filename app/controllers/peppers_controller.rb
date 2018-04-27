@@ -5,6 +5,7 @@ class PeppersController < ApplicationController
   # GET /peppers.json
   def index
     @peppers = Pepper.all
+    @user = User.find(current_user.id)
   end
 
   # GET /peppers/1
