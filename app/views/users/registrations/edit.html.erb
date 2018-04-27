@@ -1,5 +1,16 @@
 <% content_for :title, "Edit Profile" %>
 <div class="main_box">
+<<<<<<< HEAD
+  <div class="side-bar">
+    <div class="profile_pic_main">
+        <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
+    </div>
+    <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
+    <%= button_to '+ New tracker', new_pepper_path, :method => :get,  :class => 'button-new-tracker' %>
+    <div class="overview-title"><%= link_to 'Overview', root_path %></div>
+      <div class="overview-list-peppers">
+          <% @user.peppers.each do |pepper| %>
+=======
   <div class="left_main">
     <div class="pos">
       <div class="profile_pic_main">
@@ -10,6 +21,7 @@
       <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
       <div class="overview">
         <% @user.peppers.each do |pepper| %>
+>>>>>>> 51f5b739f466a4b4f5d66aa94ade0a810d1c142f
           <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
         <% end -%>
       </div>
@@ -70,6 +82,16 @@
           </div>
         <% end %>
       </div>
+<<<<<<< HEAD
+  </div>
+    <div class="absolute">
+      <i>Unhappy?</i>
+      <%= button_to "Cancel my account", @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </tr>
+    </div>
+
+  <%= image_tag("penguin_normal.jpg", :class => 'pengiun_account') %>
+=======
       <div class="pengiun_account_container">
         <div class="pengiun_edit">
           <%= image_tag("penguin_normal.jpg", :class => 'pengiun_account') %>
@@ -84,4 +106,5 @@
       </div>
     </div>
   </div>
+>>>>>>> 51f5b739f466a4b4f5d66aa94ade0a810d1c142f
 </div>

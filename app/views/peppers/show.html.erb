@@ -1,18 +1,63 @@
 <% content_for :title, "Peppers" %>
 <div class="main_box">
-  <div class="left_main">
-    <div class="pos">
-      <div class="profile_pic_main">
-        <%= link_to image_tag("https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26f427f929772c4a2bb1da62b3edca86&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb", {class: 'img_main'}), edit_user_registration_path %>
-      </div>
-      <h3 class="hello">Hello <%= current_user.firstName %></h3>
-      <div class="make_btn"><%= link_to 'New Tracker', new_pepper_path, :class => 'overview_title_a' %></div>
-      <h2 class="overview_title"><%= link_to 'Overview', root_path %></h2>
-      <div class="overview">
-        <% @user.peppers.each do |pepper| %>
-          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
-        <% end -%>
-      </div>
+    <div class="side-bar">
+        <div class="profile_pic_main">
+            <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
+        </div>
+        <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
+        <%= button_to '+ New tracker', new_pepper_path , :method => :get, :class => 'button-new-tracker' %>
+        <div class="overview-title"><%= link_to 'Overview', root_path %></div>
+        <div class="overview-list-peppers">
+            <% @user.peppers.each do |pepper| %>
+            <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+            <% end -%>
+        </div>
+        <% if user_signed_in? %>
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, :class => 'button-logout-user' %>
+        <% else %>
+            <%= link_to 'Log In', new_user_session_path %>
+            <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+    </div>
+    <div class="content">
+        <div class="pepper-display-name"><%= @pepper.name%></div>
+        <%= content_tag :div, class: "container-tracker", data: {info: @pepper.to_json} do %>
+        <% end %>
+        <script>
+            var data = $(".container-tracker").data("info");
+            console.log(data);
+            $(document).on('turbolinks:load', () => {
+                setTracker("<%= @pepper.class.name %>", data);
+            });
+        </script>
+        <% if @pepper.is_a?(ToDo) %>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <%@tasks.each do |task| %>
+          <tr>
+            <td><%= task.id %></td>
+            <td><%= task.name %></td>
+            <td><%= task.status %></td>
+
+            <td><%= link_to 'Edit', edit_pepper_path(@pepper) %></td>
+            <td><%= link_to 'Destroy', pepper_path(@pepper), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+     <tr><td><%= link_to 'New Task', new_pepper_task_path(@pepper) %></td></tr>
+<%end%>
+        <%= button_to 'Edit this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
+        <%= button_to 'Delete this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
     </div>
   </div>
   <div class="right_edit">
@@ -29,7 +74,7 @@
             setTracker("<%= @pepper.class.name %>", data);
         });
     </script>
-   
+
     <%= link_to('Edit pepper',edit_pepper_path(@pepper)) %>
   </div>
 </div>
