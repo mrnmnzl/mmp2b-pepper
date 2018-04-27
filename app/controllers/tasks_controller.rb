@@ -26,7 +26,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.pepper_id=@pepper.id
-    @task.status=false
     respond_to do |format|
       if @task.save
         format.html { redirect_to pepper_path(@pepper), notice: 'Task was successfully created.' }

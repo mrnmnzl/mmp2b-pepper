@@ -49,7 +49,7 @@ class ProgressBar {
     setTrackerView() {
         var maxWidth = $(".progress-bar").width() - 10;
         var progressBar = $(".progress-bar-internal");
-        $(".progress-bar-state").text(this.currentState + " " + this.units + " (" + parseInt(this.currentPercentage * 100) + "%)");
+        $(".progress-bar-state").text(this.currentState + " " + this.units);
 
         if (this.deadline !== null) {
             var oneDay = 24 * 60 * 60 * 1000;
