@@ -49,7 +49,7 @@ class ProgressBar {
     setTrackerView() {
         var maxWidth = $(".progress-bar").width() - 10;
         var progressBar = $(".progress-bar-internal");
-        $(".progress-bar-state").text(this.currentState + " " + this.units);
+        $(".progress-bar-state").text(this.currentState + " " + this.units + " (" + parseInt(this.currentPercentage * 100) + "%)");
 
         if (this.deadline !== null) {
             var oneDay = 24 * 60 * 60 * 1000;
@@ -61,8 +61,7 @@ class ProgressBar {
             $(".progress-bar-deadline").text("Deadline: " + goalDateString + " (" + daysLeft + " days left)");
         }
         
-        if (this.currentPercentage > 0.05) progressBar.width(this.currentPercentage * maxWidth);
-        else progressBar.width(0.05 * maxWidth)
+        progressBar.width(this.currentPercentage * maxWidth);
     }
 
     addProgress() {

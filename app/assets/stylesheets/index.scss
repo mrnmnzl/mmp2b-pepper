@@ -264,7 +264,6 @@ a:visited {
   position: relative;
   list-style: none;
   margin: 10px 0;
-  overflow: visible;
 }
 
 .tooltip {
@@ -273,19 +272,12 @@ a:visited {
   top: -5px;
   left: 50px;
   z-index: 20;
-  overflow: visible;
 }
 
 .hover:hover .tooltip {
   display: block;
-  overflow: visible;
 }
 
 .help_image {
   width:250px;
-  overflow: visible;
-}
-
-.overflow {
-  overflow: visible;
 }
