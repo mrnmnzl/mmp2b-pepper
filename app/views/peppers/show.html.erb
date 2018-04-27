@@ -30,6 +30,33 @@
                 setTracker("<%= @pepper.class.name %>", data);
             });
         </script>
+        <% if @pepper.is_a?(ToDo) %>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <%@tasks.each do |task| %>
+          <tr>
+            <td><%= task.id %></td>
+            <td><%= task.name %></td>
+            <td><%= task.status %></td>
+
+            <td><%= link_to 'Edit', edit_pepper_path(@pepper) %></td>
+            <td><%= link_to 'Destroy', pepper_path(@pepper), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+     <tr><td><%= link_to 'New Task', new_pepper_task_path(@pepper) %></td></tr>
+<%end%>
+
         <%= button_to 'Edit this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
         <%= button_to 'Delete this pepper', edit_pepper_path, :class => 'button-edit-tracker' %>
     </div>

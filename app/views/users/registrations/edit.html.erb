@@ -74,7 +74,7 @@
   </div>
     <div class="absolute">
       <i>Unhappy?</i>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, id: 'cancel_account' %>
+      <%= button_to "Cancel my account", @user, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   
   <%= image_tag("penguin_normal.jpg", :class => 'pengiun_account') %>
