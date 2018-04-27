@@ -1,9 +1,11 @@
-
-
 .pengiun_account {
-  height: auto;
-  width: 20vw;
-  max-width: 350px;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+
+  width:  10vw;
+
+  flex: none;
 }
 
 .right_edit {
@@ -26,19 +28,6 @@ a {
 
 input#cancel_account {
   margin-top: 1px;
-}
-
-.field {
-  border: 1px solid rgba(247,147,30, 0.45 );
-  border-bottom: 0;
-}
-
-.edit_form {
-  margin: 4vh 2vw;
-}
-
-.text_right {
-  margin-left: 60%;
 }
 
 .pengiun_account_container {
@@ -65,8 +54,26 @@ input#cancel_account {
 
 .absolute{
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 20px;
+  left: 350px;
+}
+
+#cancel_account {
+  height: 30px;
+  flex: 1;
+
+  text-align: center;
+  margin-top: 10px;
+  padding: 0 20px;
+
+  border: none;
+  border-radius: 3px;
+
+  font-size: 20px;
+  
+  color: white;
+  background:red;
+  cursor: pointer;
 }
 
 .zero {

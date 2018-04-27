@@ -3,7 +3,7 @@
   <div class="left">
     <h1>Pepper</h1>
     <h2>Your personal Tracker. Hosted by Penguins</h2>
-    <%= image_tag("penguin_welcome.jpg", :class => 'welcome_signup') %>
+    <%= image_tag "penguin_welcome.jpg", :class => "welcome-image" %>
   </div>
   <div class="right">
     <h2 class="right_title">Sign up</h2>
@@ -41,8 +41,7 @@
         <%= f.submit "Sign up" %>
       </div>
     <% end %>
-
-      <%= render "users/shared/links" %>
+    <%= button_to 'Log in', new_user_session_path,  :class => 'button-link-signin-user' %>
     </div>
   </div>
 </div>
