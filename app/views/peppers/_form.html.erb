@@ -12,29 +12,48 @@
     </div>
   <% end %>
 
-  <div class="actions create_form">
-    <div class="field">
+  <div class="create_form">
+    <div class="field form-group">
       <%= f.label :name_your_pepper %>
-      <%= f.text_field :name, placeholder: 'Name'%><br>
-      <br>
-      <%= f.label :What_do_you_need? %>
-      <%= f.text_field :units, placeholder: "Units" %><br />
-      <br>
-      <div><%= label :positive, "at least" %>
-      <%= f.radio_button :positive, true , :checked => true , :value => true %></div>
+      <%= f.text_field :name, placeholder: 'Name', :class => 'form-control'%>
 
-        <br>
-        <div><%= label :positive, "less than"%>
-        <%= f.radio_button :positive, false, :value => false%></div>
-      <%= f.label :goal %><br />
-      <%= f.number_field :goal %>
+      <%= f.label :What_do_you_need?, 'What do you want to track? (e.g. steps, words, ...)'%>
+      <%= f.text_field :units, placeholder: "Units", :class => 'form-control' %>
 
-      <%= f.label :deadline %><br />
-      <%= f.date_field :deadline %>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Pepper type</label>
+        </div>
+        <%= f.select(:type, options_for_select([['Progress', "Progress"],['Mean value', "Mean"], ['Tasks', "ToDo"]]), {}, { :class => 'custom-select', :id => 'inputGroupSelect01'}) %>
+      </div>
 
-<%= f.select(:type, options_for_select([['Progress', "Progress"],['Mean value', "Mean"], ['Tasks', "ToDo"]])) %>
+      <div class="radio-wrapper">
+        <div class="radio">
+          <%= f.radio_button :positive, true, :value => true, :name => 'radio1', :id => 'radio1' %>
+          <%= label :positive, "at least" %>
+        </div>
+        <div class="radio">
+          <%= f.radio_button :positive, false, :value => false, :name => 'radio1', :id => 'radio2'%>
+          <%= label :positive, "less than"%>
+        </div>
+      </div>
 
+      <%= f.label :goal, 'Goal (enter a number)' %>
+      <%= f.number_field :goal, placeholder: "Goal", :class => 'form-control' %>
+
+      <%= f.label :deadline %>
+      <%= f.date_field :deadline, :class => 'form-control date-picker' %>
     </div>
-    <%= f.submit %>
+
+    <%= f.submit "Save pepper", :class => 'btn btn-primary btn-lg'%>
   </div>
+  <script>
+    $('.custom-select').change(function() {
+      if($('.custom-select').val() === 'Mean') {
+        $('.radio-wrapper').show();
+      } else {
+        $('.radio-wrapper').hide();
+      }
+    });
+  </script>
 <% end %>

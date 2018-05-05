@@ -1,47 +1,43 @@
 <% content_for :title, "Sign Up" %>
-<div class="grid_box">
-  <div class="left">
-    <h1>Pepper</h1>
-    <h2>Your personal Tracker. Hosted by Penguins</h2>
-    <%= image_tag "penguin_welcome.jpg", :class => "welcome-image" %>
-  </div>
-  <div class="right">
-    <h2 class="right_title">Sign up</h2>
+  <div class="login-container">
+    <h1>[Pepper Logo]</h1>
+    <h2>Sign up</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-        <div class="field login_field">
-          <%= f.text_field :firstName, autofocus: true, autocomplete: "first name", placeholder: 'First Name' %>
+        <div class="field login_field form-group">
+          <%= f.text_field :firstName, autofocus: true, autocomplete: "first name", placeholder: 'First Name', :class => 'form-control' %>
         </div>
         <br>
-        <div class="field login_field">
-          <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", placeholder: 'Last Name' %>
+        <div class="field login_field form-group">
+          <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", placeholder: 'Last Name', :class => 'form-control' %>
         </div>
         <br>
-        <div class="field login_field">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email' %>
+        <div class="field login_field form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', :class => 'form-control' %>
         </div>
         <br>
-        <div class="field login_field" >
+        <div class="field login_field form-group" >
           <% if @minimum_password_length %>
-            <%= f.password_field :password, autocomplete: "off", placeholder: 'Password (' + @minimum_password_length.to_s + ' characters minimum)' %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: 'Password (' + @minimum_password_length.to_s + ' characters minimum)', :class => 'form-control' %>
           <% else %>
-            <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', :class => 'form-control' %>
           <% end %>
         </div>
         <br>
-        <div class="field login_field" >
-          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation ' %>
+        <div class="field login_field form-group" >
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation ', :class => 'form-control' %>
+        </div>
+        <div class="custom-file">
+          <%= f.file_field :picture, :class => 'form-control-file', :class => 'custom-file-input', :id => 'customFile' %>
+          <%= f.label :picture, "Upload profil picture", :class => 'custom-file-label'%>
         </div>
 
-      <%= f.label :picture, "Photo" %>
-<%= f.file_field :picture %>
-
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up", :class => 'btn btn-primary btn-lg'%>
       </div>
     <% end %>
-    <%= button_to 'Log in', new_user_session_path,  :class => 'button-link-signin-user' %>
+    <%= button_to 'Back to Log in', new_user_session_path,  :class => 'btn btn-sm' %>
     </div>
   </div>
-</div>
+

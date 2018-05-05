@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
+//= require moment
+//= require tempusdominus-bootstrap-4.js
+//= require now-ui-kit
 //= require turbolinks
 //= require_tree .
 //= require_self

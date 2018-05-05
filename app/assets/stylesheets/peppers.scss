@@ -5,7 +5,12 @@
 
   
 .container-tracker {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
   width: 80%;
+  margin: 30px auto;
 }
 
 .wrapper-progress-bar {
@@ -34,7 +39,7 @@
 
 .progress-bar-internal {
   position: relative;
-  top: 5px;
+  
   left: 5px;
   
   height: 40px;
@@ -43,12 +48,12 @@
   border-radius: 3px;
   transition: width 0.5s;
   
-  background: #F7931E;
+  background: var(--orange);
 }
 
 .wrapper-progress-bar p {
   width: 50px;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .progress-bar-state {
@@ -56,7 +61,7 @@
   margin: 10px 0;
   
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .progress-bar-deadline {
@@ -82,13 +87,14 @@
   
   margin: 0 10px;
   padding: 0;
+  padding-top: 5px;
   
   border: none;
   border-radius: 3px;
-  background: #F7931E;
+  background: var(--orange);
   
   color: white;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .progress-bar-input {

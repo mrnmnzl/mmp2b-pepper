@@ -135,7 +135,7 @@ a:visited {
   text-align: center;
 }
 
-.button-logout-user, .button-new-tracker, .button-edit-tracker, .button-delete-tracker, .signup{
+.button-logout-user, .button-new-tracker, .button-edit-tracker, .button-delete-tracker, .signup {
   height: 40px;
 
   text-align: center;
@@ -151,37 +151,6 @@ a:visited {
   cursor: pointer;
 }
 
-.button-logout-user, .button-edit-tracker, .button-delete-tracker {
-  height: 30px;
-  margin-bottom: 10px;
-
-  font-size: 12px;
-}
-
-.pepper-display-name, .display-title {
-  margin-top: 60px;
-
-  font-size: 60px;
-  font-family: 'Titan One', cursive;
-}
-
-.form-edit-tracker {
-  margin: 0;
-  
-  label {
-    margin-top: 20px;
-  }
-
-  div {
-    div {
-      div {
-        display: flex;
-        flex-direction: row; 
-      }
-    }
-  }
-}
-
 // question mark pop up
 
 #wrapper {
@@ -189,8 +158,10 @@ a:visited {
 }
 
 .helper {
-  width: 2.5vw;
+  width: 60px;
   height: auto;
+
+  margin-bottom: -10px;
 }
 
 .button {
@@ -203,55 +174,55 @@ a:visited {
   position: absolute;
   bottom: 20px;
   left: 0;
-  right: 0;
   transition: opacity 200ms;
   visibility: hidden;
   opacity: 0;
 }
 
 .popup {
-  margin: 75px auto;
-  padding: 20px;
-  background: #fff;
-  border: 1px solid #666;
-  width: 300px;
-  box-shadow: 0 0 50px rgba(0,0,0,0.5);
   position: relative;
+  width: 300px;
+  
+  margin: 60px 30px;
+  padding: 20px;
+  
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  
   .light & {
     border-color: #aaa;
     box-shadow: 0 2px 10px rgba(0,0,0,0.25);
   }
-  h2 {
+  
+  h4 {
     margin-top: 0;
-    font-size: 25px;
-    font-family: 'Titan One', cursive;
   }
+
   .close {
     position: absolute;
-    width: 20px;
-    height: 20px;
     top: 20px;
     right: 20px;
-    opacity: 0.8;
-    transition: all 200ms;
+
+    width: 20px;
+    height: 20px;
+
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
     color: #000;
+
+    opacity: 0.8;
+    transition: all 200ms;
+
     &:hover {
       opacity: 1;
     }
   }
+
   .help_content {
     max-height: 400px;
-    overflow: visible;
     text-align: left;
-  }
-  p {
-    margin: 0 0 1em;
-    &:last-child {
-      margin: 0;
-    }
   }
 }
 
@@ -267,10 +238,11 @@ a:visited {
 }
 
 .tooltip {
-  display: none;
   position: absolute;
   top: -5px;
   left: 50px;
+
+  display: none;
   z-index: 20;
 }
 

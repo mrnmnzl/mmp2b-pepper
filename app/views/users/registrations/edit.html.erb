@@ -1,60 +1,49 @@
 <% content_for :title, "Edit Profile" %>
   <div class="content">
-    <h2 class="display-title">Edit <%= resource_name.to_s.humanize %></h2>
-      <div class="edit_form">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
           <%= devise_error_messages! %>
-          <div class="field">
-            <%= f.label :firstName %><br/>
-            <%= f.text_field :firstName, autofocus: true, autocomplete: "first name",  placeholder: 'First Name'%>
-          </div>
-          <br>
-          <div class="field">
-            <%= f.label :lastName %><br/>
-            <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", placeholder: 'Last Name' %>
-          </div>
+          <div class="form-group">
+            <%= f.label :firstName %>
+            <%= f.text_field :firstName, autofocus: true, autocomplete: "first name",  placeholder: 'First Name', :class => 'form-control'%>
+          
+            <%= f.label :lastName %>
+            <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", placeholder: 'Last Name', :class => 'form-control' %>
 
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
 
-          <div class="field">
-            <%= f.label :email %><br/>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-          <br>
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-          <div class="field_edit_pass">
-            <div class="field">
-              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br/>
-              <%= f.password_field :password, autocomplete: "off", placeholder: 'New Password' %>
-              <% if @minimum_password_length %>
-                <br/>
-                <em class="text_right"><%= @minimum_password_length %> characters minimum</em>
-              <% end %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+            <% end %>
+
+            <br>
+            <%= f.label :password, 'New password (at least 8 characters)'%>
+            <%= f.password_field :password, autocomplete: "off", placeholder: 'New Password', :class => 'form-control' %>
+
+            <%= f.label :password_confirmation, 'Confirm new password'%>
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Repeat Password', :class => 'form-control' %>
+        
+
+            <div class="custom-file">
+              <%= f.file_field :picture, :class => 'form-control-file', :class => 'custom-file-input', :id => 'customFile' %>
+              <%= f.label :picture, "Click to upload a new profile picture", :class => 'custom-file-label'%>
             </div>
             <br>
-            <div class="field">
-              <%= f.label :password_confirmation %><br>
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Repeat Password' %>
-            </div>
             <br>
-            <div class="field">
-              <i>(we need your current password to confirm your changes)</i><br><br>
-              <%= f.password_field :current_password, autocomplete: "off", placeholder: 'Current Password' %>
-            </div>
-          </div>
 
-              <%= f.file_field :picture %>
+            <%= f.label :current_password, 'To confirm your changes enter your current passwort', :class => 'label-bold'%>
+            <%= f.password_field :current_password, autocomplete: "off", placeholder: 'Current Password', :class => 'form-control' %>
+          </div>
 
           <div class="actions">
-            <%= f.submit "Update" %>
+            <%= f.submit "Update profile", :class => 'btn btn-primary btn-lg'%>
           </div>
         <% end %>
       </div>
   </div>
-    <div class="absolute">
-      <i>Unhappy?</i>
-      <%= button_to "Cancel my account", @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  
-  <%= image_tag("penguin_normal.jpg", :class => 'pengiun_account') %>
+  <div class="absolute">
+    <h6>Unhappy with Peppers?</h6>
+    <%= button_to "Delete your account", @user, method: :delete, data: { confirm: 'Are you sure?' },  :class => 'btn btn-danger btn-sm' %>
+  </div>

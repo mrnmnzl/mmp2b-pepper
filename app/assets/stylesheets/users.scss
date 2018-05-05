@@ -5,6 +5,105 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//Login (modifying Now UI)
+.form-control {
+  height: 40px;
+  width: 400px;
+
+  margin-bottom: 20px;
+
+  font-size: 15px;
+  border-color: #ced4da;
+}
+
+.form-control::placeholder {
+  color: #919191;
+}
+
+.radio {
+  label {
+    padding: 0 40px;
+  }
+}
+
+.input-group-text {
+  font-size: 14px;
+}
+
+.radio-wrapper {
+  display: none;
+}
+
+.card-body {
+  width: 50vw;
+  min-height: 100px;
+}
+
+.btn {
+  font-size: 16px;
+}
+
+.custom-file {
+  display: block;
+  height: 30px;
+  width: 400px;
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.custom-file-label {
+  padding-left: 18px;
+}
+
+.custom-file-label, .custom-file-label::after {
+  border-radius: 30px;
+  line-height: 24px;
+}
+
+.custom-file-label::after {
+  height: 35px;
+}
+
+h1 {
+  margin-top: 25px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.actions {
+  text-align: center;
+}
+
+.label-bold {
+  font-weight: bold;
+}
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-group-text, .custom-select {
+  border-radius: 30px;
+}
+
+.input-group {
+  width: 400px;
+}
+
+
+
+
+
+//-----------------------
 .grid_box {
   display: grid;
   background-color: #ffffff;
@@ -22,23 +121,6 @@ body, html{
 
 .body_users {
   height: 100vh;
-}
-
-input[type="text"], input[type="password"], input[type="email"] {
-  border: 0;
-  border-bottom: 1px solid #000;
-  font-family: "Open Sans";
-  width: 420px;
-  padding-left: 20px;
-  font-size: 25px;
-  margin-bottom: 10px;
-}
-
-
-
-::placeholder {
-  color: rgb(101, 101, 101);
-  opacity: 1;
 }
 
 .left {
@@ -71,37 +153,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   grid-column-end: 4;
   margin: auto;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .actions {
-      flex: 1;
-      width: 100%;
-
-      text-align: center;
-    }
-
-    input[type="submit"], .signup p {
-      height: 60px;
-      width: 90%;
-      flex: 1;
-    
-      text-align: center;
-      margin-top: 10px;
-      padding: 0 20px;
-    
-      border: none;
-      border-radius: 3px;
-    
-      font-size: 30px;
-      
-      color: white;
-      background: #F7931E;
-      cursor: pointer;
-    }
-  }
+  
 }
 
 .signup {
@@ -144,25 +196,4 @@ input[type="text"], input[type="password"], input[type="email"] {
   flex-direction: row;
   flex-wrap: wrap;
   width: 80%;
-}
-
-.edit_form {
-  input[type="submit"], .signup p {
-    height: 60px;
-    width: 100%;
-    flex: 1;
-  
-    text-align: center;
-    margin-top: 10px;
-    padding: 0 20px;
-  
-    border: none;
-    border-radius: 3px;
-  
-    font-size: 30px;
-    
-    color: white;
-    background: #F7931E;
-    cursor: pointer;
-  }
 }

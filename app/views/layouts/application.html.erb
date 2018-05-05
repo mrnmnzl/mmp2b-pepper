@@ -16,38 +16,41 @@
       <div class="profile_pic_main">
         <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
       </div>
-      <h3 class="hello">Hello <%= current_user.firstName %>!</h3>
-      <%= button_to '+ New tracker', new_pepper_path, :method => :get, :class => 'button-new-tracker' %>
-      <div class="overview-title"><%= link_to 'Overview', root_path %></div>
+      <br>
+      <h3>Hello <%= current_user.firstName %>!</h3>
+      <%= button_to '+ New tracker', new_pepper_path, :method => :get, :class => 'btn' %>
+      <h4><%= link_to 'Overview', root_path %></h4>
       <div class="overview-list-peppers">
+        <% if @user.peppers.empty? %>
+        <p class="info-no-peppers">(You dont have any peppers yet.)</p>
+      <% else %>
         <% @user.peppers.each do |pepper| %>
-          <h4><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h4>
+          <h6><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h6>
         <% end -%>
+      <% end %>
       </div>
       <% if user_signed_in? %>
-        <%= button_to 'Log out', destroy_user_session_path, method: :delete, :class => 'button-logout-user' %>
+        <%= button_to 'Log out', destroy_user_session_path, method: :delete, :class => 'btn btn-danger btn-sm' %>
       <% else %>
         <%= link_to 'Log In', new_user_session_path %>
         <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
 
       <p>
-        <a class="button" data-turbolinks="false" href="#popup2"><%= image_tag "questionmark.png", class: 'helper' %></a>
+        <a class="button" data-turbolinks="false" href="#popup2"><%= image_tag "penguin-help.jpg", class: 'helper' %></a>
       </p>
       <div id="popup2" class="overlay light">
         <div class="popup">
           <a class="close" data-turbolinks="false" href="#">&times;</a>
 
-          <h2>Need some Help?</h2>
+          <h4>Need some Help?</h4>
           <div class="help_content">
-            These are the trackers you can use:
+            These are the current available trackers:
             <ul class="overflow">
-              <li class="hover">Progress bar<span class="tooltip"></span></li>
-              <li class="hover">Mean value<span class="tooltip"></span></li>
-              <li class="hover">Tasks<span class="tooltip"></span></li>
-              <li class="hover">More coming soon!</li>
+              <li>Progress bar<span></span></li>
+              <li>Mean value<span></span></li>
+              <li>Tasks<span></span></li>
             </ul>
-
           </div>
         </div>
       </div>
@@ -57,6 +60,5 @@
   <% else %>
     <%= yield %>
     <% end -%>
-
   </body>
 </html>
