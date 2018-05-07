@@ -13,8 +13,8 @@
   <% if user_signed_in? %>
   <div class="main_box">
     <div class="side-bar">
-      <div class="profile_pic_main">
-        <%= link_to image_tag(@user.picture, {class: 'img_main'}), edit_user_registration_path %>
+      <div class="profile-pic-main">
+        <%= link_to image_tag(@user.picture, {class: 'img-main'}), edit_user_registration_path %>
       </div>
       <br>
       <h3>Hello <%= current_user.firstName %>!</h3>

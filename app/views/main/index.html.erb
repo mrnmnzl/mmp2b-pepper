@@ -2,9 +2,13 @@
 
   <div class="content">
     <h1 class="display-title">Peppers</h1>
-    <div class="container-trackers">
-      <% @user.peppers.each do |pepper| %>
-        <%= link_to pepper_path(pepper) do %>
+    <% if @user.peppers.empty? %>
+        <%= link_to image_tag("penguin-sad.png", {class: 'img-sad'}) %>
+        <h5 class="info-no-peppers">No peppers available!</h5>
+    <% else %>
+      <div class="container-trackers">
+        <% @user.peppers.each do |pepper| %>
+          <%= link_to pepper_path(pepper) do %>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><%= pepper.name %></h5>
@@ -12,7 +16,8 @@
               <p class="card-text">Current value: <%= pepper.currVal %> <%= pepper.units %></p>
             </div>
           </div>
+          <% end -%>
         <% end -%>
-      <% end -%>
-    </div>
-</div>
+      </div>
+    <% end -%>
+  </div>
