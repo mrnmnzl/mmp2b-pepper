@@ -13,11 +13,11 @@ function setTracker(trackerType, data) {
             <p class="progress-bar-deadline"></p>
             <div class="progress-bar-input-wrapper">
                 <button id="progress-bar-button-minus" class="progress-bar-button">
-                    <i class="now-ui-icons ui-1_simple-add"></i>
+                    <i class="now-ui-icons ui-1_simple-delete"></i>
                 </button>
                 <input class="progress-bar-input" type="text">
                 <button id="progress-bar-button-plus" class="progress-bar-button">
-                    <i class="now-ui-icons ui-1_simple-delete"></i>
+                    <i class="now-ui-icons ui-1_simple-add"></i>
                 </button>
             </div>
             <p class="progress-bar-notification"></p>
@@ -38,11 +38,11 @@ function setTracker(trackerType, data) {
             <p class="progress-bar-deadline"></p>
             <div class="progress-bar-input-wrapper">
                 <button id="progress-bar-button-minus" class="progress-bar-button">
-                    <i class="now-ui-icons ui-1_simple-add"></i>
+                    <i class="now-ui-icons ui-1_simple-delete"></i>
                 </button>
                 <input class="progress-bar-input" type="text">
                 <button id="progress-bar-button-plus" class="progress-bar-button">
-                    <i class="now-ui-icons ui-1_simple-delete"></i>
+                    <i class="now-ui-icons ui-1_simple-add"></i>
                 </button>
             </div>
             <p class="progress-bar-notification"></p>
