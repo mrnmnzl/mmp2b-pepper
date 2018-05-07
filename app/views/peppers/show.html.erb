@@ -33,7 +33,7 @@
 
 
         <%= button_to 'Edit this pepper', root_path, :method => :get, :class => 'btn btn-info btn-sm' %>
-        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
           Delete this pepper
         </button>
 
@@ -42,14 +42,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete pepper?</h4>
+                <h4 class="modal-title" id="myModalLabel">Delete Pepper</h4>
               </div>
               <div class="modal-body">
-                Do you really want to delete this pepper
+                Do you really want to delete this pepper (<%= @pepper.name %>)?
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Close</button>
-                <%= button_to 'Delete this pepper', pepper_path(@pepper), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-simple' %>
+                <%= button_to 'Delete this pepper', pepper_path(@pepper), method: :delete, :class => 'btn btn-danger btn-simple' %>
               </div>
             </div>
           </div>
@@ -60,9 +60,5 @@
             $(document).on('turbolinks:load', () => {
                 setTracker("<%= @pepper.class.name %>", data);
             });
-            
-            $('#myModal').on('shown.bs.modal', function () {
-              $('#myModal').trigger('focus')
-            })
         </script>
     </div>
