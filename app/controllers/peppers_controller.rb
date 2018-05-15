@@ -12,7 +12,7 @@ class PeppersController < ApplicationController
   # GET /peppers/1.json
   def show
     @user = User.find(current_user.id)
-    @peppers=Pepper.where(user_id:"@user.id")
+    @peppers=@user.peppers
     @pepper = Pepper.find(params[:id])
     @tasks = @pepper.tasks
   end
@@ -21,13 +21,13 @@ class PeppersController < ApplicationController
   def new
     @pepper = Pepper.new
     @user = User.find(current_user.id)
-    @peppers=Pepper.where(user_id:"@user.id")
+    @peppers=@user.peppers
   end
 
   # GET /peppers/1/edit
   def edit
     @user = User.find(current_user.id)
-    @peppers=Pepper.where(user_id:"@user.id")
+    @peppers=@user.peppers
     @pepper = Pepper.find(params[:id])
   end
 
