@@ -17,7 +17,7 @@ class PeppersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pepper" do
     assert_difference('Pepper.count') do
-      post peppers_url, params: { pepper: {  } }
+      post peppers_url, params: { pepper: {} }
     end
 
     assert_redirected_to pepper_url(Pepper.last)
@@ -34,7 +34,7 @@ class PeppersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update pepper" do
-    patch pepper_url(@pepper), params: { pepper: {  } }
+    patch pepper_url(@pepper), params: { pepper: {} }
     assert_redirected_to pepper_url(@pepper)
   end
 
