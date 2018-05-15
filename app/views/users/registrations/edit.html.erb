@@ -7,7 +7,6 @@
           <div class="form-group">
             <%= f.label :firstName %>
             <%= f.text_field :firstName, autofocus: true, autocomplete: "first name",  placeholder: 'First Name', :class => 'form-control'%>
-          
             <%= f.label :lastName %>
             <%= f.text_field :lastName, autofocus: true, autocomplete: "last name", placeholder: 'Last Name', :class => 'form-control' %>
 
@@ -24,7 +23,7 @@
 
             <%= f.label :password_confirmation, 'Confirm new password'%>
             <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Repeat Password', :class => 'form-control' %>
-        
+
 
             <div class="custom-file">
               <%= f.file_field :picture, :class => 'form-control-file', :class => 'custom-file-input', :id => 'customFile' %>
