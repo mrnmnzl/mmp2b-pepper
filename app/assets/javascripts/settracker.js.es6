@@ -49,7 +49,7 @@ function setTracker(trackerType, data) {
         </div>`);
         new TargetBar(data.id, data.name, data.goal, data.currVal, data.units, data.deadline, data.positive);
     } else if (trackerType === "ToDo") {
-        $(".container-tracker").append(`<div class="container">
+        $(".container-tracker").append(`<div class="container-task">
         <div class="task__head task--row">(CLICK & HOLD TO REMOVE)</div>
             <form action="">
                 <div class="task__list">
@@ -59,6 +59,6 @@ function setTracker(trackerType, data) {
                 </div>
             </form>
         </div>`);
-        new TodoList(data.id, data.name, data.deadline, tasks = []);
+        new TodoList(data.id, data.name, data.deadline, data.tasks);
     }
 }
