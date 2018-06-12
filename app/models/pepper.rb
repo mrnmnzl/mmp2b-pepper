@@ -1,6 +1,10 @@
 class Pepper < ApplicationRecord
-  belongs_to :user
+  belongs_to :user #dependants destroy
   has_many :tasks
+  def self.types_and_labels
+    [['Progress', "Progress"],['Mean value', "Mean"], ['Tasks', "ToDo"]]
+  end
+
 end
 
 class Progress < Pepper

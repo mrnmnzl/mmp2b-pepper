@@ -24,7 +24,7 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">Pepper type</label>
         </div>
-        <%= f.select(:type, options_for_select([['Progress', "Progress"],['Mean value', "Mean"], ['Tasks', "ToDo"]]), {}, { :class => 'custom-select', :id => 'inputGroupSelect01'}) %>
+        <%= f.select(:type, options_for_select(Pepper.types_and_labels), {}, { :class => 'custom-select', :id => 'inputGroupSelect01'}) %>
       </div>
 
       <div class="radio-wrapper">
