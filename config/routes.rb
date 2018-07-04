@@ -4,13 +4,10 @@ get "/users" => redirect("/")
   devise_for :users
   resources :users
   resources :peppers do
-   resources :tasks
- end
+    resources :tasks
+  end
   resources :main
 
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-   root 'main#index'
-
-
+  root 'main#index'
 end
