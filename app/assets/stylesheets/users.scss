@@ -34,9 +34,13 @@
   display: none;
 }
 
+.container-trackers > a {
+  margin-right: 30px !important;
+}
+
 .card-body {
-  width: 50vw;
-  min-height: 100px;
+  min-height: 0 !important;
+  width: 250px;
 }
 
 .btn {

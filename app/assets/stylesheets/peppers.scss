@@ -288,3 +288,20 @@
   background-image: image-url("trash.svg");
   background-repeat: no-repeat;
 }
+
+.tasklist-deadline {
+  width: 100%;
+  
+  text-align: center;
+  font-size: 10px;
+}
+
+.field_with_errors {
+  padding: 0 !important; 
+  background-color: transparent !important;
+  display: inherit !important;
+}
+
+.logo-image {
+  width: 300px;
+}
