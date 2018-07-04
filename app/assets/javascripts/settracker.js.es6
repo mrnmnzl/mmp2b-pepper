@@ -1,4 +1,4 @@
-function setTracker(trackerType, data) {
+function setTracker(trackerType, data, tasks) {
     $('.container-tracker').empty();
     if (trackerType === "Progress") {
         $(".container-tracker").append(`<div class="container-tracker">
@@ -50,15 +50,15 @@ function setTracker(trackerType, data) {
         new TargetBar(data.id, data.name, data.goal, data.currVal, data.units, data.deadline, data.positive);
     } else if (trackerType === "ToDo") {
         $(".container-tracker").append(`<div class="container-task">
-        <div class="task__head task--row">(CLICK & HOLD TO REMOVE)</div>
-            <form action="">
-                <div class="task__list">
+        <div class="task-head task-row">Task list</div>
+            <form action="" id="task-form">
+                <div class="task-list">
                 </div>
-                <div class="task--row task__footer">
-                    <input class="task__add" type="text" value="+ add new task">
+                <div class="task-row task-footer">
+                    <input class="task-add" type="text" value="+ add new task">
                 </div>
             </form>
         </div>`);
-        new TodoList(data.id, data.name, data.deadline, data.tasks);
+        new TodoList(data.id, data.name, data.deadline, tasks);
     }
 }

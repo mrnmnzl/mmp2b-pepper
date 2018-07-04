@@ -7,57 +7,99 @@ class TodoList {
         this.tasks = tasks;
         this.deletedTask = '';
         
-        this.setup();
+        this.setupTracker();
     }
 
-    setup() {
-        $('.task__add').on('focus',function() {
+    setupTracker() {
+        this.displayTasks();
+
+        $('.task-add').on('focus',function() {
             $(this).val('');
         });
     
-        $('.task__add').on('blur',function() {
+        $('.task-add').on('blur',function() {
             $(this).val('+ add new task');
         });
 
-        $('form').on('submit', function(event) {
-            event.preventDefault();
-    
-            var taskText = $('.task__add').val();
-            var tasksN = $('.task').length + 1;
-    
-            var newTask = '<label for="task--' + tasksN + '" class="task task--new"><input class="task__check" type="checkbox" id="task--' + tasksN + '" /> <div class="task__field task--row">' + taskText + '<button class="task__important"><i class="fa fa-check" aria-hidden="true"></i></button></div></label>'
-    
-            $('.task__list').append(newTask);
-            $('.task__add').val('');
-            
-            $('.task').each(function () {
-                console.log("hallo");
-                var $field = $(this).find('.task__field');
-                var mousedown = false;
-    
-                $field.on('mousedown', function () {
-                    mousedown = true;
-                    $field.addClass('shaking');
-                    setTimeout(deleteTask, 1000);
-                });
-    
-                $field.on('mouseup', function () {
-                    mousedown = false;
-                    $field.removeClass('shaking');
-                });
-    
-                function deleteTask() {
-                    if (mousedown) {
-                        $field.addClass('delete');
-                        lastDeletedTask = $field.text();
-                        console.log(lastDeletedTask);
-    
-                        setTimeout(function () {
-                            $field.remove();
-                        }, 200);
-                    } else return;
-                }
-            });
+        $('#task-form').on('submit', event => this.addNewTask(event));
+    }
+
+    displayTasks() {
+        $('.task-list').empty();
+        tasks.forEach(task => {
+            if(task.status === true) {
+                var givenTask = '<label for="task-' + task.id + '" class="task task-new"><div class=" task-field task-row" data-id="'+ task.id +'"><div class="icon icon-checked"></div><span>' + task.name + '</span><div class="icon-trash"></div></div></label>';
+            } else {
+                var givenTask = '<label for="task-' + task.id + '" class="task task-new"><div class=" task-field task-row" data-id="'+ task.id +'"><div class="icon icon-unchecked"></div><span>' + task.name + '</span><div class="icon-trash"></div></div></label>';
+            }
+            $('.task-list').append(givenTask);
         });
+
+        this.addTaskListeners();
+    }
+
+    addNewTask() {
+        event.preventDefault();
+
+        var idTracker = this.id;
+        var taskText = $('.task-add').val();
+
+        $.ajax({
+            type: "POST", 
+            url: "/peppers/" + idTracker+ "/tasks", 
+            data: { "task[name]": taskText },
+        });
+        $('.task-add').val('');
+    }
+
+    addTaskListeners() {
+        var idTracker = this.id;
+        var taskList = this.tasks;
+
+        $('.task').each(function () {
+            var $field = $(this).find('.task-field');
+            var $deleteButton = $(this).find('.icon-trash');
+            var $checkMark = $(this).find('.icon');
+            var taskID = $field.data("id");
+
+            //Delete Task
+            $deleteButton.on("click", function() {
+                $.ajax({
+                    type: "DELETE", 
+                    url: "/peppers/" + idTracker+ "/tasks/" + taskID + ".json",
+                    success: (status) => {
+                        console.log(status);
+                    }
+                });
+                $field.remove();   
+            });
+
+            //Change status of Task
+            $checkMark.on("click", function() {
+                var currentTask = taskList.find(function(element) {
+                    return element.id === taskID;
+                });
+
+                if(currentTask.status === false) {
+                    $.ajax({
+                        type: "PATCH", 
+                        url: "/peppers/" + idTracker+ "/tasks/" + taskID + ".json",
+                        data: { "task[status]": true }
+                    });
+                    
+                    currentTask.status = true;
+                    $checkMark.removeClass("icon-unchecked").addClass("icon-checked");
+                } else {
+                    $.ajax({
+                        type: "PATCH", 
+                        url: "/peppers/" + idTracker+ "/tasks/" + taskID + ".json",
+                        data: { "task[status]": false }
+                    });
+                    
+                    currentTask.status = false;
+                    $checkMark.removeClass("icon-checked").addClass("icon-unchecked");
+                }
+            })
+        }); 
     }
 }
