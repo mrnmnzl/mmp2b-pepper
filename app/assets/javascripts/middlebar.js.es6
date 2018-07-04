@@ -55,8 +55,13 @@ class TargetBar {
             var goalDateString = goalDate.getDate() + "." + (goalDate.getMonth() + 1) + "." + goalDate.getFullYear();
             var today = Date.now();
             var daysLeft = Math.round(Math.abs((goalDate.getTime() - today) / (oneDay)));
-
-            $(".progress-bar-deadline").text("Deadline: " + goalDateString + " (" + daysLeft + " days left)");
+            var realDaysLeft = (goalDate.getTime() - today) / (oneDay);
+            
+            if(realDaysLeft < 0) {
+                $(".progress-bar-deadline").text("Deadline ist abgelaufen!");    
+            } else {
+                $(".progress-bar-deadline").text("Deadline: " + goalDateString + " (" + daysLeft + " days left)");
+            }
         }
 
         //Calculate progress width
@@ -94,6 +99,7 @@ class TargetBar {
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
+        $(".progress-bar-input").val("");
     }
 
     removeProgress() {
@@ -116,6 +122,7 @@ class TargetBar {
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
+        $(".progress-bar-input").val("");
     }
 
     tryParseInt(input) {

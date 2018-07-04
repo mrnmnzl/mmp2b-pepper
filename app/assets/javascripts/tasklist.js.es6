@@ -3,9 +3,8 @@ class TodoList {
     constructor(id, title, deadline, tasks = []) {
         this.id = id;
         this.title = title;
-        this.deadline = deadline;
         this.tasks = tasks;
-        this.deletedTask = '';
+        this.deadline = deadline;
         
         this.setupTracker();
     }
@@ -22,18 +21,35 @@ class TodoList {
         });
 
         $('#task-form').on('submit', event => this.addNewTask(event));
+
+        if (this.deadline !== null) {
+            var oneDay = 24 * 60 * 60 * 1000;
+            var goalDate = new Date(this.deadline);
+            var goalDateString = goalDate.getDate() + "." + (goalDate.getMonth() + 1) + "." + goalDate.getFullYear();
+            var today = Date.now();
+            var daysLeft = Math.round(Math.abs((goalDate.getTime() - today) / (oneDay)));
+            var realDaysLeft = (goalDate.getTime() - today) / (oneDay);
+            
+            if(realDaysLeft < 0) {
+                $(".progress-bar-deadline").text("Deadline ist abgelaufen!");    
+            } else {
+                $(".progress-bar-deadline").text("Deadline: " + goalDateString + " (" + daysLeft + " days left)");
+            }
+        }
     }
 
     displayTasks() {
         $('.task-list').empty();
-        tasks.forEach(task => {
+        var tasklist = this.tasks;
+        for(var i = 0; i < tasklist.length; i++) {
+            var task = tasklist[i];
             if(task.status === true) {
                 var givenTask = '<label for="task-' + task.id + '" class="task task-new"><div class=" task-field task-row" data-id="'+ task.id +'"><div class="icon icon-checked"></div><span>' + task.name + '</span><div class="icon-trash"></div></div></label>';
             } else {
                 var givenTask = '<label for="task-' + task.id + '" class="task task-new"><div class=" task-field task-row" data-id="'+ task.id +'"><div class="icon icon-unchecked"></div><span>' + task.name + '</span><div class="icon-trash"></div></div></label>';
             }
             $('.task-list').append(givenTask);
-        });
+        };
 
         this.addTaskListeners();
     }
@@ -67,9 +83,7 @@ class TodoList {
                 $.ajax({
                     type: "DELETE", 
                     url: "/peppers/" + idTracker+ "/tasks/" + taskID + ".json",
-                    success: (status) => {
-                        console.log(status);
-                    }
+
                 });
                 $field.remove();   
             });
