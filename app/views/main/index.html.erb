@@ -8,14 +8,26 @@
     <% else %>
       <div class="container-trackers">
         <% @user.peppers.each do |pepper| %>
-          <%= link_to pepper_path(pepper) do %>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"><%= pepper.name %></h5>
-              <h6 class="card-subtitle mb-2 text-muted">Goal: <%= pepper.goal %>  <%= pepper.units %></h6>
-              <p class="card-text">Current value: <%= pepper.currVal %> <%= pepper.units %></p>
-            </div>
-          </div>
+          <% if pepper.class.name === "ToDo" %>
+            <%= link_to pepper_path(pepper) do %>
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= pepper.name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Task List</h6>
+                  <p class="card-text">Number of tasks: <%= pepper.tasks.length %></p>
+                </div>
+              </div>
+            <% end -%>
+          <% else %>
+            <%= link_to pepper_path(pepper) do %>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= pepper.name %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Goal: <%= pepper.goal %>  <%= pepper.units %></h6>
+                  <p class="card-text">Current value: <%= pepper.currVal %> <%= pepper.units %></p>
+                </div>
+              </div>
+            <% end -%>
           <% end -%>
         <% end -%>
       </div>

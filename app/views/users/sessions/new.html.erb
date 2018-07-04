@@ -1,6 +1,6 @@
 <% content_for :title, "Tracker" %>
   <div class="login-container">
-    <h1>[Pepper Logo]</h1>
+    <%= image_tag("logo-pepper.png", alt: "Logo", class: "logo-image") %>
     <h3>Your personal tracker. Hosted by penguins</h3>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field login_field form-group">

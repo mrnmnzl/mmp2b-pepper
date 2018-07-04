@@ -32,10 +32,17 @@
     </div>
 
     <script>
+        $('.container-tracker').empty();
         var data = $(".container-tracker").data("info");
         var tasks = $(".container-tracker").data("tasks");
-        $(document).on('turbolinks:load', () => {
-            setTracker("<%= @pepper.class.name %>", data, tasks);
-        });
+        if(tasks === undefined) {
+          $(document).on('turbolinks:load', () => {
+              setTracker("<%= @pepper.class.name %>", data);
+          });
+        } else {
+          $(document).on('turbolinks:load', () => {
+              setTracker("<%= @pepper.class.name %>", data, tasks);
+          });
+        }
     </script>
   </div>

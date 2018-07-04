@@ -29,7 +29,7 @@
       <% else %>
         <% @user.peppers.each do |pepper| %>
           <h6><%= link_to(pepper.name.to_s, pepper_path(pepper)) %></h6>
-        <% end -%>
+        <% end %>
       <% end %>
       </div>
       <% if user_signed_in? %>
