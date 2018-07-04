@@ -84,6 +84,7 @@ class ProgressBar {
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
+        $(".progress-bar-input").val("");
     }
 
     removeProgress() {
@@ -106,6 +107,7 @@ class ProgressBar {
         } else {
             $(".progress-bar-notification").text("Only numbers can be entered!");
         }
+        $(".progress-bar-input").val("");
     }
 
     tryParseInt(input) {
