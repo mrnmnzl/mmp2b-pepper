@@ -15,10 +15,7 @@
   <div class="create_form">
     <div class="field form-group">
       <%= f.label :name_your_pepper %>
-      <%= f.text_field :name, placeholder: 'Name', :class => 'form-control'%>
-
-      <%= f.label :What_do_you_need?, 'What do you want to track? (e.g. steps, words, ...)'%>
-      <%= f.text_field :units, placeholder: "Units", :class => 'form-control' %>
+      <%= f.text_field :name, placeholder: 'Name', :class => 'form-control', :required => true%>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -27,19 +24,23 @@
         <%= f.select(:type, options_for_select(Pepper.types_and_labels), {}, { :class => 'custom-select', :id => 'inputGroupSelect01'}) %>
       </div>
 
-      <div class="radio-wrapper">
-        <div class="radio">
-          <%= f.radio_button :positive, true, :value => true, :name => 'radio1', :id => 'radio1' %>
-          <%= label :positive, "at least" %>
-        </div>
-        <div class="radio">
-          <%= f.radio_button :positive, false, :value => false, :name => 'radio1', :id => 'radio2'%>
-          <%= label :positive, "less than"%>
+      <div class="wrapper-no-tasks">
+        <%= f.label :What_do_you_need?, 'What do you want to track? (e.g. steps, words, ...)'%>
+        <%= f.text_field :units, placeholder: "Units", :class => 'form-control'%>
+
+        <%= f.label :goal, 'Goal (enter a number)' %>
+        <%= f.number_field :goal, placeholder: "Goal", :class => 'form-control', :min => 1%>
+
+        <div class="radio-wrapper">
+          <div class="radio-pepper">
+            <%= f.radio_button :positive, true, :value => true, :name => 'radio1', :id => 'radio1'%>
+            <%= label :positive, "at least" %>
+          
+            <%= f.radio_button :positive, false, :value => false, :name => 'radio1', :id => 'radio2'%>
+            <%= label :positive, "less than"%>
+          </div>
         </div>
       </div>
-
-      <%= f.label :goal, 'Goal (enter a number)' %>
-      <%= f.number_field :goal, placeholder: "Goal", :class => 'form-control' %>
 
       <%= f.label :deadline %>
       <%= f.date_field :deadline, :class => 'form-control date-picker' %>
@@ -53,6 +54,11 @@
         $('.radio-wrapper').show();
       } else {
         $('.radio-wrapper').hide();
+      }
+      if($('.custom-select').val() === 'ToDo') {
+        $('.wrapper-no-tasks').hide();
+      } else {
+        $('.wrapper-no-tasks').show();
       }
     });
   </script>
